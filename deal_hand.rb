@@ -22,7 +22,7 @@ class Game
   end
 
   def deal
-    while @players.any? { |i,p| p.hand.length < self.cards_per_hand } do
+    while (!@deck.cards.empty? && @players.any? { |i,p| p.hand.length < self.cards_per_hand }) do
       (1..num_players).each do |i|
         @players[i].hand << @deck.draw_card
       end
