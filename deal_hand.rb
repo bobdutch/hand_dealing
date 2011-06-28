@@ -22,7 +22,7 @@ class Game
   end
 
   def deal
-    self.cards_per_hand.times do
+    while @players.any? { |i,p| p.hand.length < self.cards_per_hand } do
       (1..num_players).each do |i|
         @players[i].hand << @deck.draw_card
       end
