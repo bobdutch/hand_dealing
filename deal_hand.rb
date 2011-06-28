@@ -46,6 +46,18 @@ class Player
   end
 end
 
+class Card
+  attr_reader :suit, :rank
+  def initialize(suit, rank)
+    @suit = suit
+    @rank = rank
+  end
+
+  def to_s
+    [self.rank,self.suit].join
+  end
+end
+
 class Deck
   SUITS = %w(d c s h)
 
@@ -54,7 +66,7 @@ class Deck
   attr_accessor :cards
 
   def initialize
-    self.cards = RANKS.product(SUITS).collect { |c| "#{c[0]}#{c[1]}"}
+    self.cards = RANKS.product(SUITS).collect { |c| Card.new(c[1],c[0]) }
   end
 
   def shuffle
@@ -62,7 +74,7 @@ class Deck
   end
 
   def draw_card
-    @cards.pop
+    self.cards.pop
   end
 end
 
