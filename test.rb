@@ -17,15 +17,22 @@ class Game
     #deal
     cards.times do
       (1..players).each do |i|
-        @players[i] ||= Array.new
-        @players[i] << @deck.pop
+        @players[i] ||= Player.new
+        @players[i].hand << @deck.pop
       end
     end
 
     #print it out
     @players.sort.each do |i,p|
-      puts "#{i}: #{p.join(' ')}"
+      puts "#{i}: #{p.hand.join(' ')}"
     end
+  end
+end
+
+class Player
+  attr_accessor :hand
+  def initialize
+    @hand = Array.new
   end
 end
 
