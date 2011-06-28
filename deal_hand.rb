@@ -2,26 +2,39 @@ class Game
 
   ALLOWED_PLAYERS = 1..9
 
-  def initialize(players, cards)
+  attr_accessor :num_players, :cards_per_hand
+
+  def initialize(num_players, cards_per_hand)
     #validate input
+
+    self.num_players = num_players
+    self.cards_per_hand = cards_per_hand
+
+
+    @players = Hash.new
+    (1..num_players).each do |i|
+      @players[i] = Player.new
+    end
 
     #shuffle
     @deck = Deck.new
     @deck.shuffle
+  end
 
-    @players = Hash.new()
-    #deal
-    cards.times do
-      (1..players).each do |i|
-        @players[i] ||= Player.new
+  def deal
+    self.cards_per_hand.times do
+      (1..num_players).each do |i|
         @players[i].hand << @deck.draw_card
       end
     end
+  end
 
-    #print it out
+  def to_s
+    str = ''
     @players.sort.each do |i,p|
-      puts "Seat #{i}: #{p.hand.join(', ')}"
+      str += "Seat #{i}: #{p.hand.join(', ')}\n"
     end
+    str
   end
 end
 
@@ -53,4 +66,9 @@ class Deck
   end
 end
 
-Game.new(6, 4)
+#TODO get input from command line
+
+g = Game.new(6, 4)
+g.deal
+puts g
+
