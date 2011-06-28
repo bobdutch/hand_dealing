@@ -20,7 +20,7 @@ class Game
 
     #print it out
     @players.sort.each do |i,p|
-      puts "#{i}: #{p.hand.join(' ')}"
+      puts "Seat #{i}: #{p.hand.join(', ')}"
     end
   end
 end
