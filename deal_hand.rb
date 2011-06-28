@@ -36,12 +36,12 @@ end
 class Deck
   SUITS = %w(d c s h)
 
-  CLASSES = (2..9).to_a + %w(T J Q K A)
+  RANKS = (2..9).to_a + %w(T J Q K A)
 
   attr_accessor :cards
 
   def initialize
-    self.cards = CLASSES.product(SUITS).collect { |c| "#{c[0]}#{c[1]}"}
+    self.cards = RANKS.product(SUITS).collect { |c| "#{c[0]}#{c[1]}"}
   end
 
   def shuffle
