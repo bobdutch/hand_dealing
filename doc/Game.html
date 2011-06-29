@@ -34,8 +34,8 @@
         <div class="section-body">
           <ul>
           
-            <li><a href="./deal_hand_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
-              class="thickbox" title="deal_hand.rb">deal_hand.rb</a></li>
+            <li><a href="./lib/game_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/game.rb">lib/game.rb</a></li>
           
           </ul>
         </div>
@@ -69,8 +69,6 @@
           
           <li><a href="#method-i-deal">#deal</a></li>
           
-          <li><a href="#method-i-to_s">#to_s</a></li>
-          
         </ul>
       </div>
       
@@ -80,6 +78,15 @@
 
     <div id="project-metadata">
       
+      
+      <div id="fileindex-section" class="section project-section">
+        <h3 class="section-header">Files</h3>
+        <ul>
+        
+          <li class="file"><a href="./README.html">README</a></li>
+        
+        </ul>
+      </div>
       
 
       <div id="classindex-section" class="section project-section">
@@ -104,6 +111,12 @@
           <li><a href="./Game.html">Game</a></li>
         
           <li><a href="./Player.html">Player</a></li>
+        
+          <li><a href="./SeatList.html">SeatList</a></li>
+        
+          <li><a href="./TC_Card.html">TC_Card</a></li>
+        
+          <li><a href="./TC_Deck.html">TC_Deck</a></li>
         
         </ul>
         <div id="no-class-search-results" style="display: none;">No matching classes.</div>
@@ -181,6 +194,21 @@
           </div>
         </div>
         
+        <div id="players-attribute-method" class="method-detail">
+          <a name="players"></a>
+          
+          <div class="method-heading attribute-method-heading">
+            <span class="method-name">players</span><span
+              class="attribute-access-type">[R]</span>
+          </div>
+
+          <div class="method-description">
+          
+          
+          
+          </div>
+        </div>
+        
       </div><!-- attribute-method-details -->
       
 
@@ -209,7 +237,7 @@
             
             <div class="method-source-code" id="new-source">
 <pre>
-<span class="ruby-comment"># File deal_hand.rb, line 7</span>
+<span class="ruby-comment"># File lib/game.rb, line 8</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">num_players</span>, <span class="ruby-identifier">cards_per_hand</span>)
   <span class="ruby-comment">#validate input</span>
 
@@ -217,9 +245,10 @@
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">cards_per_hand</span> = <span class="ruby-identifier">cards_per_hand</span>
 
 
-  <span class="ruby-ivar">@players</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>
-  (<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-identifier">num_players</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
-    <span class="ruby-ivar">@players</span>[<span class="ruby-identifier">i</span>] = <span class="ruby-constant">Player</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@players</span> = <span class="ruby-constant">SeatList</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">num_players</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">position</span> = <span class="ruby-identifier">i</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+    <span class="ruby-ivar">@players</span>.<span class="ruby-identifier">add_player</span>(<span class="ruby-constant">Player</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">position</span>))
   <span class="ruby-keyword">end</span>
 
   <span class="ruby-comment">#shuffle</span>
@@ -261,12 +290,11 @@
             
             <div class="method-source-code" id="deal-source">
 <pre>
-<span class="ruby-comment"># File deal_hand.rb, line 24</span>
+<span class="ruby-comment"># File lib/game.rb, line 26</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">deal</span>
-  <span class="ruby-keyword">while</span> <span class="ruby-ivar">@players</span>.<span class="ruby-identifier">any?</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">i</span>,<span class="ruby-identifier">p</span><span class="ruby-operator">|</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">hand</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&lt;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">cards_per_hand</span> } <span class="ruby-keyword">do</span>
-    (<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-identifier">num_players</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
-      <span class="ruby-ivar">@players</span>[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">hand</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@deck</span>.<span class="ruby-identifier">draw_card</span>
-    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">while</span> (<span class="ruby-operator">!</span><span class="ruby-ivar">@deck</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@players</span>.<span class="ruby-identifier">any?</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">num_cards</span> <span class="ruby-operator">&lt;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">cards_per_hand</span> }) <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@players</span>.<span class="ruby-identifier">current</span>.<span class="ruby-identifier">get_card</span>(<span class="ruby-ivar">@deck</span>.<span class="ruby-identifier">draw_card</span>)
+    <span class="ruby-ivar">@players</span>.<span class="ruby-identifier">advance</span>
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
             </div><!-- deal-source -->
@@ -277,43 +305,6 @@
 
           
         </div><!-- deal-method -->
-
-      
-        <div id="to_s-method" class="method-detail ">
-          <a name="method-i-to_s"></a>
-
-          
-          <div class="method-heading">
-            <span class="method-name">to_s</span><span
-              class="method-args">()</span>
-            <span class="method-click-advice">click to toggle source</span>
-          </div>
-          
-
-          <div class="method-description">
-            
-            
-            
-
-            
-            <div class="method-source-code" id="to_s-source">
-<pre>
-<span class="ruby-comment"># File deal_hand.rb, line 32</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
-  <span class="ruby-identifier">str</span> = <span class="ruby-string">''</span>
-  <span class="ruby-ivar">@players</span>.<span class="ruby-identifier">sort</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span>,<span class="ruby-identifier">p</span><span class="ruby-operator">|</span>
-    <span class="ruby-identifier">str</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot;Seat #{i}: #{p.hand.join(', ')}\n&quot;</span>
-  <span class="ruby-keyword">end</span>
-  <span class="ruby-identifier">str</span>
-<span class="ruby-keyword">end</span></pre>
-            </div><!-- to_s-source -->
-            
-          </div>
-
-          
-
-          
-        </div><!-- to_s-method -->
 
       
       </div><!-- public-instance-method-details -->

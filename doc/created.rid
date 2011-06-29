@@ -1,2 +1,11 @@
-Tue, 28 Jun 2011 11:11:36 -0700
-deal_hand.rb	Tue, 28 Jun 2011 10:47:46 -0700
+Tue, 28 Jun 2011 21:09:09 -0700
+./test/tc_deck.rb	Tue, 28 Jun 2011 21:08:21 -0700
+./test/ts_all.rb	Tue, 28 Jun 2011 20:57:48 -0700
+./lib/game.rb	Tue, 28 Jun 2011 15:50:02 -0700
+./lib/card.rb	Tue, 28 Jun 2011 13:06:47 -0700
+./test/tc_card.rb	Tue, 28 Jun 2011 17:01:09 -0700
+./README	Tue, 28 Jun 2011 10:03:23 -0700
+./lib/seat_list.rb	Tue, 28 Jun 2011 16:31:55 -0700
+./lib/player.rb	Tue, 28 Jun 2011 15:49:53 -0700
+./deal_hand.rb	Tue, 28 Jun 2011 16:32:44 -0700
+./lib/deck.rb	Tue, 28 Jun 2011 15:42:45 -0700

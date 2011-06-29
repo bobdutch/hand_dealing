@@ -5,7 +5,7 @@
 <head>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
 
-  <title>Class: Deck</title>
+  <title>Class: SeatList</title>
 
   <link rel="stylesheet" href="./rdoc.css" type="text/css" media="screen" />
 
@@ -34,8 +34,8 @@
         <div class="section-body">
           <ul>
           
-            <li><a href="./lib/deck_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
-              class="thickbox" title="lib/deck.rb">lib/deck.rb</a></li>
+            <li><a href="./lib/seat_list_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/seat_list.rb">lib/seat_list.rb</a></li>
           
           </ul>
         </div>
@@ -67,11 +67,15 @@
           
           <li><a href="#method-c-new">::new</a></li>
           
-          <li><a href="#method-i-draw_card">#draw_card</a></li>
+          <li><a href="#method-i-add_player">#add_player</a></li>
           
-          <li><a href="#method-i-empty-3F">#empty?</a></li>
+          <li><a href="#method-i-advance">#advance</a></li>
           
-          <li><a href="#method-i-shuffle">#shuffle</a></li>
+          <li><a href="#method-i-any-3F">#any?</a></li>
+          
+          <li><a href="#method-i-current">#current</a></li>
+          
+          <li><a href="#method-i-to_s">#to_s</a></li>
           
         </ul>
       </div>
@@ -131,7 +135,7 @@
   </div>
 
   <div id="documentation">
-    <h1 class="class">Deck</h1>
+    <h1 class="class">SeatList</h1>
 
     <div id="description" class="description">
       
@@ -144,49 +148,7 @@
       
 
       
-      <!-- Constants -->
-      <div id="constants-list" class="section">
-        <h3 class="section-header">Constants</h3>
-        <dl>
-        
-          <dt><a name="RANKS">RANKS</a></dt>
-          
-          <dd class="description"></dd>
-          
-        
-          <dt><a name="SUITS">SUITS</a></dt>
-          
-          <dd class="description"></dd>
-          
-        
-        </dl>
-      </div>
-      
 
-      
-      <!-- Attributes -->
-      <div id="attribute-method-details" class="method-section section">
-        <h3 class="section-header">Attributes</h3>
-
-        
-        <div id="cards-attribute-method" class="method-detail">
-          <a name="cards"></a>
-          
-          <a name="cards="></a>
-          
-          <div class="method-heading attribute-method-heading">
-            <span class="method-name">cards</span><span
-              class="attribute-access-type">[RW]</span>
-          </div>
-
-          <div class="method-description">
-          
-          
-          
-          </div>
-        </div>
-        
-      </div><!-- attribute-method-details -->
       
 
       <!-- Methods -->
@@ -214,9 +176,9 @@
             
             <div class="method-source-code" id="new-source">
 <pre>
-<span class="ruby-comment"># File lib/deck.rb, line 8</span>
+<span class="ruby-comment"># File lib/seat_list.rb, line 2</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
-  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">cards</span> = <span class="ruby-constant">RANKS</span>.<span class="ruby-identifier">product</span>(<span class="ruby-constant">SUITS</span>).<span class="ruby-identifier">collect</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-constant">Card</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">c</span>[<span class="ruby-value">1</span>],<span class="ruby-identifier">c</span>[<span class="ruby-value">0</span>]) }
+  <span class="ruby-ivar">@seats</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
 <span class="ruby-keyword">end</span></pre>
             </div><!-- new-source -->
             
@@ -234,13 +196,13 @@
         <h3 class="section-header">Public Instance Methods</h3>
 
       
-        <div id="draw_card-method" class="method-detail ">
-          <a name="method-i-draw_card"></a>
+        <div id="add_player-method" class="method-detail ">
+          <a name="method-i-add_player"></a>
 
           
           <div class="method-heading">
-            <span class="method-name">draw_card</span><span
-              class="method-args">()</span>
+            <span class="method-name">add_player</span><span
+              class="method-args">(player)</span>
             <span class="method-click-advice">click to toggle source</span>
           </div>
           
@@ -251,28 +213,29 @@
             
 
             
-            <div class="method-source-code" id="draw_card-source">
+            <div class="method-source-code" id="add_player-source">
 <pre>
-<span class="ruby-comment"># File lib/deck.rb, line 20</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">draw_card</span>
-  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">cards</span>.<span class="ruby-identifier">pop</span>
+<span class="ruby-comment"># File lib/seat_list.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_player</span>(<span class="ruby-identifier">player</span>)
+  <span class="ruby-ivar">@seats</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">player</span>)
+  <span class="ruby-keyword">self</span>
 <span class="ruby-keyword">end</span></pre>
-            </div><!-- draw_card-source -->
+            </div><!-- add_player-source -->
             
           </div>
 
           
 
           
-        </div><!-- draw_card-method -->
+        </div><!-- add_player-method -->
 
       
-        <div id="empty-3F-method" class="method-detail ">
-          <a name="method-i-empty-3F"></a>
+        <div id="advance-method" class="method-detail ">
+          <a name="method-i-advance"></a>
 
           
           <div class="method-heading">
-            <span class="method-name">empty?</span><span
+            <span class="method-name">advance</span><span
               class="method-args">()</span>
             <span class="method-click-advice">click to toggle source</span>
           </div>
@@ -284,28 +247,62 @@
             
 
             
-            <div class="method-source-code" id="empty-3F-source">
+            <div class="method-source-code" id="advance-source">
 <pre>
-<span class="ruby-comment"># File lib/deck.rb, line 16</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">empty?</span>
-  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">cards</span>.<span class="ruby-identifier">empty?</span>
+<span class="ruby-comment"># File lib/seat_list.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">advance</span>
+  <span class="ruby-ivar">@seats</span>.<span class="ruby-identifier">push</span>(<span class="ruby-ivar">@seats</span>.<span class="ruby-identifier">shift</span>)
+  <span class="ruby-keyword">self</span>
 <span class="ruby-keyword">end</span></pre>
-            </div><!-- empty-3F-source -->
+            </div><!-- advance-source -->
             
           </div>
 
           
 
           
-        </div><!-- empty-3F-method -->
+        </div><!-- advance-method -->
 
       
-        <div id="shuffle-method" class="method-detail ">
-          <a name="method-i-shuffle"></a>
+        <div id="any-3F-method" class="method-detail ">
+          <a name="method-i-any-3F"></a>
 
           
           <div class="method-heading">
-            <span class="method-name">shuffle</span><span
+            <span class="method-name">any?</span><span
+              class="method-args">(*args, &block)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="any-3F-source">
+<pre>
+<span class="ruby-comment"># File lib/seat_list.rb, line 20</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">any?</span>(*<span class="ruby-identifier">args</span>, &amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-ivar">@seats</span>.<span class="ruby-identifier">any?</span>(*<span class="ruby-identifier">args</span>, &amp;<span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- any-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- any-3F-method -->
+
+      
+        <div id="current-method" class="method-detail ">
+          <a name="method-i-current"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">current</span><span
               class="method-args">()</span>
             <span class="method-click-advice">click to toggle source</span>
           </div>
@@ -317,20 +314,57 @@
             
 
             
-            <div class="method-source-code" id="shuffle-source">
+            <div class="method-source-code" id="current-source">
 <pre>
-<span class="ruby-comment"># File lib/deck.rb, line 12</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">shuffle</span>
-  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">cards</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">cards</span>.<span class="ruby-identifier">sort_by</span> { <span class="ruby-identifier">rand</span> }
+<span class="ruby-comment"># File lib/seat_list.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">current</span>
+  <span class="ruby-ivar">@seats</span>.<span class="ruby-identifier">first</span>
 <span class="ruby-keyword">end</span></pre>
-            </div><!-- shuffle-source -->
+            </div><!-- current-source -->
             
           </div>
 
           
 
           
-        </div><!-- shuffle-method -->
+        </div><!-- current-method -->
+
+      
+        <div id="to_s-method" class="method-detail ">
+          <a name="method-i-to_s"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">to_s</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="to_s-source">
+<pre>
+<span class="ruby-comment"># File lib/seat_list.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
+  <span class="ruby-identifier">str</span> = <span class="ruby-string">''</span>
+  <span class="ruby-ivar">@seats</span>.<span class="ruby-identifier">sort_by</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">position</span>}.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">str</span> <span class="ruby-operator">+=</span> <span class="ruby-node">&quot;Seat #{p.position}: #{p.hand.join(', ')}\n&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">str</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- to_s-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- to_s-method -->
 
       
       </div><!-- public-instance-method-details -->
