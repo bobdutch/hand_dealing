@@ -13,6 +13,10 @@ class Deck
     self.cards = self.cards.sort_by { rand }
   end
 
+  def empty?
+    self.cards.empty?
+  end
+
   def draw_card
     self.cards.pop
   end

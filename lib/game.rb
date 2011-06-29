@@ -3,6 +3,7 @@ class Game
   ALLOWED_PLAYERS = 1..9
 
   attr_accessor :num_players, :cards_per_hand
+  attr_reader :players
 
   def initialize(num_players, cards_per_hand)
     #validate input
@@ -11,9 +12,10 @@ class Game
     self.cards_per_hand = cards_per_hand
 
 
-    @players = Hash.new
-    (1..num_players).each do |i|
-      @players[i] = Player.new
+    @players = SeatList.new
+    num_players.times do |i|
+      position = i + 1
+      @players.add_player(Player.new(position))
     end
 
     #shuffle
@@ -22,18 +24,9 @@ class Game
   end
 
   def deal
-    while (!@deck.cards.empty? && @players.any? { |i,p| p.hand.length < self.cards_per_hand }) do
-      (1..num_players).each do |i|
-        @players[i].hand << @deck.draw_card
-      end
+    while (!@deck.empty? && @players.any? { |p| p.num_cards < self.cards_per_hand }) do
+      @players.current.get_card(@deck.draw_card)
+      @players.advance
     end
-  end
-
-  def to_s
-    str = ''
-    @players.sort.each do |i,p|
-      str += "Seat #{i}: #{p.hand.join(', ')}\n"
-    end
-    str
   end
 end
