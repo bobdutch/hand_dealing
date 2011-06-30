@@ -42,7 +42,11 @@ class TC_SeatList < Test::Unit::TestCase
 
   def test_count
     assert_equal(0, @list.count)
-    flunk
+    players_to_add = 5
+    players_to_add.times do |i|
+      @list.add_player(Player.new(i))
+    end
+    assert_equal(players_to_add, @list.count)
   end
 
   def test_any?
