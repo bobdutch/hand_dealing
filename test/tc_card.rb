@@ -9,10 +9,10 @@ class TC_Card < Test::Unit::TestCase
   #we shouldn't be able to change a card's suit or rank
   def test_change_suit_or_rank
     assert_raise(NoMethodError) do
-      @cart.suit = 's'
+      @cart.suit = 'anything'
     end
     assert_raise(NoMethodError) do
-      @cart.rank = 's'
+      @cart.rank = 'anything'
     end
   end
 
