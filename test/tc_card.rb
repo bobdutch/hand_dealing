@@ -19,6 +19,6 @@ class TC_Card < Test::Unit::TestCase
   def test_to_s
     rank, suit = @card.to_s.split('')
     assert_equal(suit, @card.suit)
-    assert_equal(rank, @card.rank)
+    assert_equal(rank, @card.rank.to_s)
   end
 end
