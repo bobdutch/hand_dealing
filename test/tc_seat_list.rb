@@ -6,9 +6,6 @@ class TC_SeatList < Test::Unit::TestCase
 
   def setup
     @list = SeatList.new
-    5.times do |i|
-      @list.add_player(Player.new(i))
-    end
   end
 
   def test_add_player
