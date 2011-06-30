@@ -19,8 +19,10 @@ class TC_SeatList < Test::Unit::TestCase
     assert_equal(@list.current, nil)
 
     #add one and make sure he/she's current
-    @list.add_player(Player.new(1))
+    player = Player.new(1)
+    @list.add_player(player)
     assert_instance_of(Player, @list.current)
+    assert_equal(player, @list.current)
     first_current = @list.current
 
     #advance a list of one shouldn't change current
