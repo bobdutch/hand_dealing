@@ -21,6 +21,10 @@ class SeatList
     @seats.any?(*args, &block)
   end
 
+  def count
+    @seats.count
+  end
+
   def to_s
     str = ''
     @seats.sort_by {|p| p.position}.each do |p|
