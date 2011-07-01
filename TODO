@@ -5,3 +5,4 @@
 - friendly message if they cntrl-c
 - check for code reek
 - instruction to run app and tests
+- possibly make Hand a model 
