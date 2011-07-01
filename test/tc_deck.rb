@@ -19,9 +19,9 @@ class TC_Deck < Test::Unit::TestCase
   #there is a 1/52 chance that a shuffled deck could be the same
   #so this test is dubious
   def test_shuffle
-    pre_shuffle = @deck#.clone
+    pre_shuffle = @deck.cards
     @deck.shuffle
-    assert_not_equal(@deck, pre_shuffle, "these are the same?")
+    assert_not_equal(@deck.cards, pre_shuffle, "these probably shouldn't be the same, run the test again?")
   end
 
   def test_empty
