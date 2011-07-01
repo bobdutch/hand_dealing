@@ -20,7 +20,12 @@ class TC_Deck < Test::Unit::TestCase
   end
 
   def test_empty
-    flunk
+    assert_not_equal(@deck.cards.length, 0)
+    @deck.cards.length.times do
+      assert(!@deck.empty?)
+      @deck.draw_card
+    end
+    assert(@deck.empty?)
   end
 end
 
