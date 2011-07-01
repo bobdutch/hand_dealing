@@ -73,6 +73,8 @@
           
           <li><a href="#method-i-any-3F">#any?</a></li>
           
+          <li><a href="#method-i-count">#count</a></li>
+          
           <li><a href="#method-i-current">#current</a></li>
           
           <li><a href="#method-i-to_s">#to_s</a></li>
@@ -92,6 +94,8 @@
         <ul>
         
           <li class="file"><a href="./README.html">README</a></li>
+        
+          <li class="file"><a href="./TODO.html">TODO</a></li>
         
         </ul>
       </div>
@@ -125,6 +129,8 @@
           <li><a href="./TC_Card.html">TC_Card</a></li>
         
           <li><a href="./TC_Deck.html">TC_Deck</a></li>
+        
+          <li><a href="./TC_SeatList.html">TC_SeatList</a></li>
         
         </ul>
         <div id="no-class-search-results" style="display: none;">No matching classes.</div>
@@ -297,6 +303,39 @@
         </div><!-- any-3F-method -->
 
       
+        <div id="count-method" class="method-detail ">
+          <a name="method-i-count"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">count</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="count-source">
+<pre>
+<span class="ruby-comment"># File lib/seat_list.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">count</span>
+  <span class="ruby-ivar">@seats</span>.<span class="ruby-identifier">count</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- count-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- count-method -->
+
+      
         <div id="current-method" class="method-detail ">
           <a name="method-i-current"></a>
 
@@ -349,7 +388,7 @@
             
             <div class="method-source-code" id="to_s-source">
 <pre>
-<span class="ruby-comment"># File lib/seat_list.rb, line 24</span>
+<span class="ruby-comment"># File lib/seat_list.rb, line 28</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
   <span class="ruby-identifier">str</span> = <span class="ruby-string">''</span>
   <span class="ruby-ivar">@seats</span>.<span class="ruby-identifier">sort_by</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">position</span>}.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span>

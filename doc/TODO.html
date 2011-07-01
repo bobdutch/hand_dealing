@@ -6,7 +6,7 @@
 <head>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
 
-  <title>File: README [RDoc Documentation]</title>
+  <title>File: TODO [RDoc Documentation]</title>
 
   <link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet" />
 
@@ -87,27 +87,23 @@
   </div>
 
   <div id="documentation">
-    
-<p>We’d like you to design and implement a small “Hand Dealing” program
-in a language of your choice.  We’ll be looking for well-designed, robust
-and maintainable code.  We’re not necessarily looking for extensibility,
-so you don’t need to worry about allowing plugins or configuration
-options, or anything of that sort.</p>
-
-<p>The program is pretty simple.  It’s a console app that will first prompt
-the user for the number of players in a card game.  Then it will prompt the
-user for the number of cards to deal each player. After that, it will
-simply print out the cards dealt to each player. Here is a sample run of
-the program:</p>
-
-<p>Enter the number of players: 6 Enter the number of cards in a hand: 4 Seat
-1: Qd, 4h, 3c, 4c Seat 2: 9c, Qs, 9s, 7s Seat 3: 7c, Qc, Ac, Ah Seat 4: As,
-2h, 3s, 3d Seat 5: 6h, 7d, Kd, 5s Seat 6: Qh, 8c, Ts, 9h Some Things To
-Note</p>
-
-<p>Suits should be represented with a single letter (c, d, h, s).  Ranks
-should be represented with a number for 2-9, T for ten, JQK for royalty,
-and A for Ace.</p>
+    <ul><li>
+<p>test coverage of all instance methods</p>
+</li><li>
+<p>we shouldn’t have to explicitly set player’s positions</p>
+</li><li>
+<p>audit attr_accessors, what shouldn’t we expose?</p>
+</li><li>
+<p>validate input, retry with friendly messages</p>
+</li><li>
+<p>friendly message if they cntrl-c</p>
+</li><li>
+<p>check for code reek</p>
+</li><li>
+<p>instruction to run app and tests</p>
+</li><li>
+<p>possibly make Hand a model</p>
+</li></ul>
 
   </div>
 

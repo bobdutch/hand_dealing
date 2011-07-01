@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+
+  <title>Class: TC_SeatList</title>
+
+  <link rel="stylesheet" href="./rdoc.css" type="text/css" media="screen" />
+
+  <script src="./js/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/darkfish.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body id="top" class="class">
+
+  <div id="metadata">
+    <div id="home-metadata">
+      <div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="./index.html">Home</a>
+          <a href="./index.html#classes">Classes</a>
+          <a href="./index.html#methods">Methods</a>
+        </h3>
+      </div>
+    </div>
+
+    <div id="file-metadata">
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul>
+          
+            <li><a href="./test/tc_seat_list_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="test/tc_seat_list.rb">test/tc_seat_list.rb</a></li>
+          
+          </ul>
+        </div>
+      </div>
+
+      
+    </div>
+
+    <div id="class-metadata">
+      
+      <!-- Parent Class -->
+      <div id="parent-class-section" class="section">
+        <h3 class="section-header">Parent</h3>
+        
+        <p class="link">Test::Unit::TestCase</p>
+        
+      </div>
+      
+
+      
+
+      
+
+      
+      <!-- Method Quickref -->
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+          <li><a href="#method-i-setup">#setup</a></li>
+          
+          <li><a href="#method-i-test_add_player">#test_add_player</a></li>
+          
+          <li><a href="#method-i-test_any-3F">#test_any?</a></li>
+          
+          <li><a href="#method-i-test_count">#test_count</a></li>
+          
+          <li><a href="#method-i-test_current_and_advance">#test_current_and_advance</a></li>
+          
+          <li><a href="#method-i-test_to_s">#test_to_s</a></li>
+          
+        </ul>
+      </div>
+      
+
+      
+    </div>
+
+    <div id="project-metadata">
+      
+      
+      <div id="fileindex-section" class="section project-section">
+        <h3 class="section-header">Files</h3>
+        <ul>
+        
+          <li class="file"><a href="./README.html">README</a></li>
+        
+          <li class="file"><a href="./TODO.html">TODO</a></li>
+        
+        </ul>
+      </div>
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class/Module Index
+          <span class="search-toggle"><img src="./images/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <ul class="link-list">
+        
+          <li><a href="./Card.html">Card</a></li>
+        
+          <li><a href="./Deck.html">Deck</a></li>
+        
+          <li><a href="./Game.html">Game</a></li>
+        
+          <li><a href="./Player.html">Player</a></li>
+        
+          <li><a href="./SeatList.html">SeatList</a></li>
+        
+          <li><a href="./TC_Card.html">TC_Card</a></li>
+        
+          <li><a href="./TC_Deck.html">TC_Deck</a></li>
+        
+          <li><a href="./TC_SeatList.html">TC_SeatList</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+
+      
+    </div>
+  </div>
+
+  <div id="documentation">
+    <h1 class="class">TC_SeatList</h1>
+
+    <div id="description" class="description">
+      
+    </div><!-- description -->
+
+    
+    <div id="5Buntitled-5D" class="documentation-section">
+      
+
+      
+
+      
+
+      
+
+      <!-- Methods -->
+      
+      <div id="public-instance-method-details" class="method-section section">
+        <h3 class="section-header">Public Instance Methods</h3>
+
+      
+        <div id="setup-method" class="method-detail ">
+          <a name="method-i-setup"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">setup</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="setup-source">
+<pre>
+<span class="ruby-comment"># File test/tc_seat_list.rb, line 7</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setup</span>
+  <span class="ruby-ivar">@list</span> = <span class="ruby-constant">SeatList</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- setup-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- setup-method -->
+
+      
+        <div id="test_add_player-method" class="method-detail ">
+          <a name="method-i-test_add_player"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">test_add_player</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="test_add_player-source">
+<pre>
+<span class="ruby-comment"># File test/tc_seat_list.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_add_player</span>
+  <span class="ruby-identifier">orig_count</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">count</span>
+  <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">add_player</span>(<span class="ruby-constant">Player</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">orig_count</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">orig_count</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>, <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">count</span>)
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- test_add_player-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- test_add_player-method -->
+
+      
+        <div id="test_any-3F-method" class="method-detail ">
+          <a name="method-i-test_any-3F"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">test_any?</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="test_any-3F-source">
+<pre>
+<span class="ruby-comment"># File test/tc_seat_list.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_any?</span>
+  <span class="ruby-identifier">flunk</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- test_any-3F-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- test_any-3F-method -->
+
+      
+        <div id="test_count-method" class="method-detail ">
+          <a name="method-i-test_count"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">test_count</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="test_count-source">
+<pre>
+<span class="ruby-comment"># File test/tc_seat_list.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_count</span>
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">0</span>, <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">count</span>)
+  <span class="ruby-identifier">players_to_add</span> = <span class="ruby-value">5</span>
+  <span class="ruby-identifier">players_to_add</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">add_player</span>(<span class="ruby-constant">Player</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">i</span>))
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">players_to_add</span>, <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">count</span>)
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- test_count-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- test_count-method -->
+
+      
+        <div id="test_current_and_advance-method" class="method-detail ">
+          <a name="method-i-test_current_and_advance"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">test_current_and_advance</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="test_current_and_advance-source">
+<pre>
+<span class="ruby-comment"># File test/tc_seat_list.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_current_and_advance</span>
+  <span class="ruby-comment">#start with no players</span>
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-ivar">@list</span>.<span class="ruby-identifier">current</span>, <span class="ruby-keyword">nil</span>)
+
+  <span class="ruby-comment">#add one and make sure he/she's current</span>
+  <span class="ruby-identifier">player</span> = <span class="ruby-constant">Player</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1</span>)
+  <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">add_player</span>(<span class="ruby-identifier">player</span>)
+  <span class="ruby-identifier">assert_instance_of</span>(<span class="ruby-constant">Player</span>, <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">current</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">player</span>, <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">current</span>)
+  <span class="ruby-identifier">first_current</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">current</span>
+
+  <span class="ruby-comment">#advance a list of one shouldn't change current</span>
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-ivar">@list</span>.<span class="ruby-identifier">current</span>, <span class="ruby-identifier">first_current</span>)
+  <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">advance</span>
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-ivar">@list</span>.<span class="ruby-identifier">current</span>, <span class="ruby-identifier">first_current</span>)
+
+  <span class="ruby-comment">#add another and advance</span>
+  <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">add_player</span>(<span class="ruby-constant">Player</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2</span>))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-ivar">@list</span>.<span class="ruby-identifier">current</span>, <span class="ruby-identifier">first_current</span>)
+  <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">advance</span>
+  <span class="ruby-identifier">assert_not_equal</span>(<span class="ruby-ivar">@list</span>.<span class="ruby-identifier">current</span>, <span class="ruby-identifier">first_current</span>)
+
+  <span class="ruby-comment">#make sure it loops back to the first player</span>
+  <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">advance</span>
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-ivar">@list</span>.<span class="ruby-identifier">current</span>, <span class="ruby-identifier">first_current</span>)
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- test_current_and_advance-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- test_current_and_advance-method -->
+
+      
+        <div id="test_to_s-method" class="method-detail ">
+          <a name="method-i-test_to_s"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">test_to_s</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="test_to_s-source">
+<pre>
+<span class="ruby-comment"># File test/tc_seat_list.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_to_s</span>
+  <span class="ruby-identifier">flunk</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- test_to_s-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- test_to_s-method -->
+
+      
+      </div><!-- public-instance-method-details -->
+    
+    </div><!-- 5Buntitled-5D -->
+  
+
+  </div><!-- documentation -->
+
+  <div id="validator-badges">
+    <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+    <p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+      Rdoc Generator</a> 2</small>.</p>
+  </div>
+
+</body>
+</html>
+
