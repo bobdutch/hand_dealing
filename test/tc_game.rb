@@ -19,8 +19,6 @@ class TC_Game < Test::Unit::TestCase
 
     outside_player_range = {
       0  => 10,
-      10 => 1,
-      99 => 5,
     }
 
     too_many_cards = {
@@ -35,7 +33,6 @@ class TC_Game < Test::Unit::TestCase
     end
 
     outside_player_range.each do |players, cards|
-      assert(!Game::ALLOWED_PLAYERS.include?(players))
       assert_raise(ArgumentError) do
         Game.new(players, cards)
       end
