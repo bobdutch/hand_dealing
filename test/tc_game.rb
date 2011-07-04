@@ -30,7 +30,9 @@ class TC_Game < Test::Unit::TestCase
     }
 
     good_vals.each do |players, cards|
-      @game = Game.new(players, cards)
+      assert_nothing_raised(ArgumentError) do
+        @game = Game.new(players, cards)
+      end
       assert_instance_of(Game, @game)
     end
 
