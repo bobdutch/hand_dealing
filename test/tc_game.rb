@@ -20,10 +20,12 @@ class TC_Game < Test::Unit::TestCase
     }
 
     bad_player_vals = {
+      'foo' => 5,
       0  => 10,
     }
 
     bad_card_vals = {
+      10 => 'foo',
       10 => 0,
     }
 
