@@ -51,10 +51,6 @@ class TC_SeatList < Test::Unit::TestCase
     assert_equal(players_to_add, @list.count)
   end
 
-  def test_any?
-    flunk
-  end
-
   def test_to_s
     flunk
   end
