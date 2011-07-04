@@ -36,7 +36,9 @@ class TC_Game < Test::Unit::TestCase
 
     outside_player_range.each do |players, cards|
       assert(!Game::ALLOWED_PLAYERS.include?(players))
-      assert_raise(ArgumentError, Game.new(players, cards))
+      assert_raise(ArgumentError) do
+        Game.new(players, cards)
+      end
       #check for error message
     end
     

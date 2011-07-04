@@ -11,6 +11,14 @@ class Game
     self.cards_per_hand = cards_per_hand.to_i
 
     #validate number of players
+    unless ALLOWED_PLAYERS.include?(self.num_players)
+      message = if self.num_players == 0
+        "number of players must be a positive number"
+      elsif self.num_players > ALLOWED_PLAYERS.max
+        "too many players - the maxmimum is #{ALLOWED_PLAYERS.max}"
+      end
+      raise ArgumentError.new(message)
+    end
 
     @deck = Deck.new
 
