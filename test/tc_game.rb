@@ -15,16 +15,16 @@ class TC_Game < Test::Unit::TestCase
       1 => 1,
       2 => 5,
       9 => 5,
+      52 => 52,
+      100 => 100,
     }
 
-    outside_player_range = {
+    bad_player_vals = {
       0  => 10,
     }
 
-    too_many_cards = {
-      1 => 53,
-      2 => 27,
-      9 => 6,
+    bad_card_vals = {
+      10 => 0,
     }
 
     good_vals.each do |players, cards|
@@ -32,13 +32,20 @@ class TC_Game < Test::Unit::TestCase
       assert_instance_of(Game, @game)
     end
 
-    outside_player_range.each do |players, cards|
+    bad_player_vals.each do |players, cards|
       assert_raise(ArgumentError) do
-        Game.new(players, cards)
+        @game = Game.new(players, cards)
       end
       #check for error message
     end
-    
+
+    bad_card_vals.each do |players, cards|
+      assert_raise(ArgumentError) do
+        @game = Game.new(players, cards)
+      end
+      #check for error message
+    end
+   
   end
 
   def test_deal
