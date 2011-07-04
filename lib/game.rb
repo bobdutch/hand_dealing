@@ -1,6 +1,6 @@
 class Game
 
-  ALLOWED_PLAYERS = (1..9).to_a
+  ALLOWED_PLAYERS = (1..9)
   
   attr_accessor :num_players, :cards_per_hand
   attr_reader :players, :deck 
