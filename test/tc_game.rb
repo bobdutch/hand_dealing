@@ -2,6 +2,8 @@ require 'test/unit'
 require "#{File.dirname(__FILE__)}/../lib/game.rb"
 require "#{File.dirname(__FILE__)}/../lib/seat_list.rb"
 require "#{File.dirname(__FILE__)}/../lib/player.rb"
+require "#{File.dirname(__FILE__)}/../lib/deck.rb"
+require "#{File.dirname(__FILE__)}/../lib/card.rb"
 
 class TC_Game < Test::Unit::TestCase
 
@@ -34,8 +36,7 @@ class TC_Game < Test::Unit::TestCase
 
     outside_player_range.each do |players, cards|
       assert(!Game::ALLOWED_PLAYERS.include?(players))
-      @game = Game.new(players, cards)
-      assert_nil(@game)
+      assert_raise(ArgumentError, Game.new(players, cards))
       #check for error message
     end
     
