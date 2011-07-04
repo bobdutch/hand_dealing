@@ -52,7 +52,7 @@ class TC_Game < Test::Unit::TestCase
     #remove some cards from players
 
     #deal again
-    flunk
+    flunk("to do")
   end
 
 end

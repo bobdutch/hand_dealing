@@ -52,7 +52,7 @@ class TC_SeatList < Test::Unit::TestCase
   end
 
   def test_to_s
-    flunk
+    flunk("to do")
   end
  
 end
