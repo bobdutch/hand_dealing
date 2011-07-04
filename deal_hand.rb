@@ -14,6 +14,5 @@ print "Enter the number of cards in a hand: "
 cards_per_hand = gets.to_i
 
 g = Game.new(num_players, cards_per_hand)
-g.deal
 puts g.players
 
