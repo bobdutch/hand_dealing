@@ -39,11 +39,6 @@ class Table
     players.each(*args, &block)
   end
 
-  #return the number of active players at the table
-  def count_players
-    players.count
-  end
-
   #an array of the active player objects
   def players
     @seats.collect {|position, player| player }

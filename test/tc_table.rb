@@ -10,9 +10,9 @@ class TC_Table < Test::Unit::TestCase
   end
 
   def test_add_player
-    orig_count = @list.count_players
+    orig_count = @list.players.count
     @list.add_player(Player.new)
-    assert_equal(orig_count + 1, @list.count_players)
+    assert_equal(orig_count + 1, @list.players.count)
   end
 
   def test_current_and_advance
@@ -44,11 +44,11 @@ class TC_Table < Test::Unit::TestCase
 
 
   def test_count_players
-    assert_equal(0, @list.count_players)
+    assert_equal(0, @list.players.count)
     players_to_add = 5
     players_to_add.times do
       @list.add_player(Player.new)
     end
-    assert_equal(players_to_add, @list.count_players)
+    assert_equal(players_to_add, @list.players.count)
   end
 end
