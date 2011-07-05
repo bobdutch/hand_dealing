@@ -1,7 +1,7 @@
 #An instance of Card represents a standard playing card
 #in a 52-card deck.
 class Card
- SUITS = %w(d c s h)
+ SUITS = %w(c d h s)
  RANKS = (2..9).to_a + %w(T J Q K A)
 
  attr_reader :suit, :rank

@@ -96,7 +96,7 @@ class TC_Game < Test::Unit::TestCase
       seats = @game.table.to_s.split("\n")
       position = 0
       seats.each do |seat|
-        assert_match(/^Seat (\d+): ([2-9TJQKA]{1}[cshd]{1}, {1})*([2-9TJQKA]{1}[cshd]{1})?$/, seat)
+        assert_match(/^Seat (\d+): ([2-9TJQKA]{1}[cdhs]{1}, {1})*([2-9TJQKA]{1}[cdhs]{1})?$/, seat)
       end
     end
   end
