@@ -1,7 +1,6 @@
 #represents a person who is playing the game
-#the position method represents the seating order of the player
 class Player
-  attr_accessor :hand, :position
+  attr_accessor :hand
 
   #create a new person with an empty hand
   def initialize
@@ -18,9 +17,9 @@ class Player
     self.hand << card
   end
 
-  #print out the player's seat position and contents of hand
+  #print out contents of the player's hand
   def to_s
-    "Seat #{self.position}: #{self.hand.join(', ')}"
+    self.hand.join(', ')
   end
 end
 
