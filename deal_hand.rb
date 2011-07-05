@@ -16,6 +16,13 @@ begin
     print "Enter the number of cards in a hand: "
     @cards_per_hand = gets.to_i
   end
+  
+  #for sanity if the user enters values that would require
+  #one thousand times the cards of a standard deck then abort
+  if(@num_players*@cards_per_hand > 52000)
+    puts "Pick some reasonable values and try again"
+    raise Interrupt
+  end
 
   g = Game.new(@num_players, @cards_per_hand)
   puts g.players
