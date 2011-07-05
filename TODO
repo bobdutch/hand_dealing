@@ -1,3 +1,2 @@
 - audit attr_accessors, what shouldn't we expose?
-- check for code reek
 - instruction to run app and tests
