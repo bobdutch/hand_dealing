@@ -3,7 +3,7 @@ class Deck
   attr_reader :cards
 
   def initialize
-    @cards = Card::RANKS.product(Card::SUITS).collect { |c| Card.new(c[1],c[0]) }
+    @cards = Card::RANKS.product(Card::SUITS).collect { |rank, suit| Card.new(suit, rank) }
   end
 
   def shuffle!
