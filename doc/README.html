@@ -74,9 +74,9 @@
         
           <li><a href="./NumPlayersError.html">NumPlayersError</a></li>
         
-          <li><a href="./Player.html">Player</a></li>
+          <li><a href="./Object.html">Object</a></li>
         
-          <li><a href="./SeatList.html">SeatList</a></li>
+          <li><a href="./Player.html">Player</a></li>
         
           <li><a href="./TC_Card.html">TC_Card</a></li>
         
@@ -86,7 +86,9 @@
         
           <li><a href="./TC_Player.html">TC_Player</a></li>
         
-          <li><a href="./TC_SeatList.html">TC_SeatList</a></li>
+          <li><a href="./TC_Table.html">TC_Table</a></li>
+        
+          <li><a href="./Table.html">Table</a></li>
         
         </ul>
         <div id="no-class-search-results" style="display: none;">No matching classes.</div>
@@ -98,6 +100,57 @@
 
   <div id="documentation">
     
+<p>Deal Hand <a href="README.html">README</a></p>
+
+<h1>Running The Application</h1>
+
+<p>The Deal Hand application requires that you have ruby in your path. It has
+been tested on OSX with ruby 1.8.7 and ruby 1.9.2. It does not require any
+libraries outside of the ruby standard library</p>
+
+<p>Change directory to hand_dealing (from where the source was extracted) and
+run</p>
+
+<pre>ruby deal_hand.rb</pre>
+
+<p>It can be run from other directories ex.</p>
+
+<pre>cd ..
+ruby hand_dealing/deal_hand.rb</pre>
+
+<p>or if the file is executable</p>
+
+<pre>./deal_hand.rb</pre>
+
+<p>The program will prompt you to enter the number of players and number of
+cards per hand. If valid input is given it will print the hands dealt to
+the players to standard out.</p>
+
+<pre>* It will reprompt if invalid values are entered
+  ex. (0, non-numerical values).
+* Input is cast to an integer
+  ex. (&quot;1.5&quot; would become 1, &quot;2 foo&quot; becomes 2)
+* There is no limit to the number of players or cards per hand.
+  Cards are dealt one at a time to the players starting with seat one.    Therefore, if the number of players multiplied by the number of
+  cards per hand is greater than 52 then the players will start with
+  an uneven amount of cards</pre>
+
+<h1>Running The Tests</h1>
+
+<p>tests are in the test/ directory. You can run the test cases individually
+eg.</p>
+
+<pre>ruby test/tc_player.rb</pre>
+
+<p>or run the test suite which runs all of the test cases</p>
+
+<pre>ruby test/ts_all.rb</pre>
+
+<h1>Reading the documentation</h1>
+
+<p>RDoc has been generated for this project you can read it by opening
+doc/index.html in your browser</p>
+
   </div>
 
   <div id="validator-badges">

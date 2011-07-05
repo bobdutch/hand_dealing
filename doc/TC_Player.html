@@ -118,9 +118,9 @@
         
           <li><a href="./NumPlayersError.html">NumPlayersError</a></li>
         
-          <li><a href="./Player.html">Player</a></li>
+          <li><a href="./Object.html">Object</a></li>
         
-          <li><a href="./SeatList.html">SeatList</a></li>
+          <li><a href="./Player.html">Player</a></li>
         
           <li><a href="./TC_Card.html">TC_Card</a></li>
         
@@ -130,7 +130,9 @@
         
           <li><a href="./TC_Player.html">TC_Player</a></li>
         
-          <li><a href="./TC_SeatList.html">TC_SeatList</a></li>
+          <li><a href="./TC_Table.html">TC_Table</a></li>
+        
+          <li><a href="./Table.html">Table</a></li>
         
         </ul>
         <div id="no-class-search-results" style="display: none;">No matching classes.</div>
@@ -182,7 +184,7 @@
             
             <div class="method-source-code" id="setup-source">
 <pre>
-<span class="ruby-comment"># File test/tc_player.rb, line 5</span>
+<span class="ruby-comment"># File test/tc_player.rb, line 6</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">setup</span>
   <span class="ruby-ivar">@player</span> = <span class="ruby-constant">Player</span>.<span class="ruby-identifier">new</span>
 <span class="ruby-keyword">end</span></pre>
@@ -215,10 +217,10 @@
             
             <div class="method-source-code" id="test_get_card-source">
 <pre>
-<span class="ruby-comment"># File test/tc_player.rb, line 9</span>
+<span class="ruby-comment"># File test/tc_player.rb, line 10</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_get_card</span>
   <span class="ruby-identifier">orig_count</span> = <span class="ruby-ivar">@player</span>.<span class="ruby-identifier">num_cards</span>
-  <span class="ruby-ivar">@player</span>.<span class="ruby-identifier">get_card</span>(<span class="ruby-constant">Card</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">'s'</span>,<span class="ruby-string">'2'</span>))
+  <span class="ruby-ivar">@player</span>.<span class="ruby-identifier">get_card</span>(<span class="ruby-constant">Card</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">'s'</span>,<span class="ruby-value">2</span>))
   <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">orig_count</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>, <span class="ruby-ivar">@player</span>.<span class="ruby-identifier">num_cards</span>)
 <span class="ruby-keyword">end</span></pre>
             </div><!-- test_get_card-source -->

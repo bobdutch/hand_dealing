@@ -120,9 +120,9 @@
         
           <li><a href="./NumPlayersError.html">NumPlayersError</a></li>
         
-          <li><a href="./Player.html">Player</a></li>
+          <li><a href="./Object.html">Object</a></li>
         
-          <li><a href="./SeatList.html">SeatList</a></li>
+          <li><a href="./Player.html">Player</a></li>
         
           <li><a href="./TC_Card.html">TC_Card</a></li>
         
@@ -132,7 +132,9 @@
         
           <li><a href="./TC_Player.html">TC_Player</a></li>
         
-          <li><a href="./TC_SeatList.html">TC_SeatList</a></li>
+          <li><a href="./TC_Table.html">TC_Table</a></li>
+        
+          <li><a href="./Table.html">Table</a></li>
         
         </ul>
         <div id="no-class-search-results" style="display: none;">No matching classes.</div>
@@ -184,7 +186,7 @@
             
             <div class="method-source-code" id="test_deal-source">
 <pre>
-<span class="ruby-comment"># File test/tc_game.rb, line 53</span>
+<span class="ruby-comment"># File test/tc_game.rb, line 54</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_deal</span>
   <span class="ruby-comment">#initialize game</span>
   <span class="ruby-ivar">@game</span> = <span class="ruby-constant">Game</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">5</span>,<span class="ruby-value">6</span>)
@@ -253,7 +255,7 @@
             
             <div class="method-source-code" id="test_new-source">
 <pre>
-<span class="ruby-comment"># File test/tc_game.rb, line 10</span>
+<span class="ruby-comment"># File test/tc_game.rb, line 11</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_new</span>
   <span class="ruby-identifier">assert_nil</span>(<span class="ruby-ivar">@game</span>)
 
@@ -325,7 +327,7 @@
             
             <div class="method-source-code" id="test_players_to_s-source">
 <pre>
-<span class="ruby-comment"># File test/tc_game.rb, line 93</span>
+<span class="ruby-comment"># File test/tc_game.rb, line 94</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_players_to_s</span>
   <span class="ruby-identifier">test_arguments</span> = [[<span class="ruby-value">5</span>,<span class="ruby-value">6</span>],[<span class="ruby-value">1</span>,<span class="ruby-value">10</span>],[<span class="ruby-value">25</span>,<span class="ruby-value">10</span>], [<span class="ruby-value">53</span>,<span class="ruby-value">10</span>]]
   <span class="ruby-identifier">test_arguments</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">num_players</span>, <span class="ruby-identifier">cards_per_hand</span><span class="ruby-operator">|</span>

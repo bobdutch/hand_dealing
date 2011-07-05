@@ -71,6 +71,8 @@
           
           <li><a href="#method-i-test_to_s">#test_to_s</a></li>
           
+          <li><a href="#method-i-test_valid_suits_and_ranks">#test_valid_suits_and_ranks</a></li>
+          
         </ul>
       </div>
       
@@ -120,9 +122,9 @@
         
           <li><a href="./NumPlayersError.html">NumPlayersError</a></li>
         
-          <li><a href="./Player.html">Player</a></li>
+          <li><a href="./Object.html">Object</a></li>
         
-          <li><a href="./SeatList.html">SeatList</a></li>
+          <li><a href="./Player.html">Player</a></li>
         
           <li><a href="./TC_Card.html">TC_Card</a></li>
         
@@ -132,7 +134,9 @@
         
           <li><a href="./TC_Player.html">TC_Player</a></li>
         
-          <li><a href="./TC_SeatList.html">TC_SeatList</a></li>
+          <li><a href="./TC_Table.html">TC_Table</a></li>
+        
+          <li><a href="./Table.html">Table</a></li>
         
         </ul>
         <div id="no-class-search-results" style="display: none;">No matching classes.</div>
@@ -184,7 +188,7 @@
             
             <div class="method-source-code" id="setup-source">
 <pre>
-<span class="ruby-comment"># File test/tc_card.rb, line 5</span>
+<span class="ruby-comment"># File test/tc_card.rb, line 6</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">setup</span>
   <span class="ruby-ivar">@card</span> = <span class="ruby-constant">Card</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">Card</span><span class="ruby-operator">::</span><span class="ruby-constant">SUITS</span>[<span class="ruby-identifier">rand</span>(<span class="ruby-constant">Card</span><span class="ruby-operator">::</span><span class="ruby-constant">SUITS</span>.<span class="ruby-identifier">size</span>)], <span class="ruby-constant">Card</span><span class="ruby-operator">::</span><span class="ruby-constant">RANKS</span>[<span class="ruby-identifier">rand</span>(<span class="ruby-constant">Card</span><span class="ruby-operator">::</span><span class="ruby-constant">RANKS</span>.<span class="ruby-identifier">size</span>)]) 
 <span class="ruby-keyword">end</span></pre>
@@ -217,7 +221,7 @@
             
             <div class="method-source-code" id="test_change_suit_or_rank-source">
 <pre>
-<span class="ruby-comment"># File test/tc_card.rb, line 10</span>
+<span class="ruby-comment"># File test/tc_card.rb, line 11</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_change_suit_or_rank</span>
   <span class="ruby-identifier">assert_raise</span>(<span class="ruby-constant">NoMethodError</span>) <span class="ruby-keyword">do</span>
     <span class="ruby-ivar">@cart</span>.<span class="ruby-identifier">suit</span> = <span class="ruby-string">'anything'</span>
@@ -255,7 +259,7 @@
             
             <div class="method-source-code" id="test_to_s-source">
 <pre>
-<span class="ruby-comment"># File test/tc_card.rb, line 19</span>
+<span class="ruby-comment"># File test/tc_card.rb, line 36</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_to_s</span>
   <span class="ruby-identifier">rank</span>, <span class="ruby-identifier">suit</span> = <span class="ruby-ivar">@card</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">''</span>)
   <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">suit</span>, <span class="ruby-ivar">@card</span>.<span class="ruby-identifier">suit</span>)
@@ -269,6 +273,51 @@
 
           
         </div><!-- test_to_s-method -->
+
+      
+        <div id="test_valid_suits_and_ranks-method" class="method-detail ">
+          <a name="method-i-test_valid_suits_and_ranks"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">test_valid_suits_and_ranks</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="test_valid_suits_and_ranks-source">
+<pre>
+<span class="ruby-comment"># File test/tc_card.rb, line 20</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_valid_suits_and_ranks</span>
+  <span class="ruby-identifier">assert_nothing_raised</span>(<span class="ruby-constant">ArgumentError</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-constant">Card</span><span class="ruby-operator">::</span><span class="ruby-constant">SUITS</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">suit</span><span class="ruby-operator">|</span>
+      <span class="ruby-constant">Card</span><span class="ruby-operator">::</span><span class="ruby-constant">RANKS</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">rank</span><span class="ruby-operator">|</span>
+        <span class="ruby-constant">Card</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">suit</span>, <span class="ruby-identifier">rank</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  [[<span class="ruby-string">'d'</span>,<span class="ruby-value">1</span>],[<span class="ruby-string">'f'</span>,<span class="ruby-value">2</span>],[<span class="ruby-string">'f'</span>,<span class="ruby-value">1</span>]].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">suit</span>, <span class="ruby-identifier">rank</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">assert_raise</span>(<span class="ruby-constant">ArgumentError</span>) <span class="ruby-keyword">do</span>
+      <span class="ruby-constant">Card</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">suit</span>,<span class="ruby-identifier">rank</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- test_valid_suits_and_ranks-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- test_valid_suits_and_ranks-method -->
 
       
       </div><!-- public-instance-method-details -->

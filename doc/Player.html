@@ -50,7 +50,7 @@
       <div id="parent-class-section" class="section">
         <h3 class="section-header">Parent</h3>
         
-        <p class="link">Object</p>
+        <p class="link"><a href="Object.html">Object</a></p>
         
       </div>
       
@@ -70,6 +70,8 @@
           <li><a href="#method-i-get_card">#get_card</a></li>
           
           <li><a href="#method-i-num_cards">#num_cards</a></li>
+          
+          <li><a href="#method-i-to_s">#to_s</a></li>
           
         </ul>
       </div>
@@ -120,9 +122,9 @@
         
           <li><a href="./NumPlayersError.html">NumPlayersError</a></li>
         
-          <li><a href="./Player.html">Player</a></li>
+          <li><a href="./Object.html">Object</a></li>
         
-          <li><a href="./SeatList.html">SeatList</a></li>
+          <li><a href="./Player.html">Player</a></li>
         
           <li><a href="./TC_Card.html">TC_Card</a></li>
         
@@ -132,7 +134,9 @@
         
           <li><a href="./TC_Player.html">TC_Player</a></li>
         
-          <li><a href="./TC_SeatList.html">TC_SeatList</a></li>
+          <li><a href="./TC_Table.html">TC_Table</a></li>
+        
+          <li><a href="./Table.html">Table</a></li>
         
         </ul>
         <div id="no-class-search-results" style="display: none;">No matching classes.</div>
@@ -147,6 +151,9 @@
 
     <div id="description" class="description">
       
+<p>represents a person who is playing the game the position method represents
+the seating order of the player</p>
+
     </div><!-- description -->
 
     
@@ -219,13 +226,13 @@
 
           <div class="method-description">
             
-            
+            <p>create a new person with an empty hand</p>
             
 
             
             <div class="method-source-code" id="new-source">
 <pre>
-<span class="ruby-comment"># File lib/player.rb, line 4</span>
+<span class="ruby-comment"># File lib/player.rb, line 7</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">hand</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
 <span class="ruby-keyword">end</span></pre>
@@ -258,13 +265,13 @@
 
           <div class="method-description">
             
-            
+            <p>put the specified card in the player’s hand</p>
             
 
             
             <div class="method-source-code" id="get_card-source">
 <pre>
-<span class="ruby-comment"># File lib/player.rb, line 12</span>
+<span class="ruby-comment"># File lib/player.rb, line 17</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">get_card</span>(<span class="ruby-identifier">card</span>)
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">hand</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">card</span>
 <span class="ruby-keyword">end</span></pre>
@@ -291,13 +298,13 @@
 
           <div class="method-description">
             
-            
+            <p>return the number of cards in the player’s hand</p>
             
 
             
             <div class="method-source-code" id="num_cards-source">
 <pre>
-<span class="ruby-comment"># File lib/player.rb, line 8</span>
+<span class="ruby-comment"># File lib/player.rb, line 12</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">num_cards</span>
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">hand</span>.<span class="ruby-identifier">length</span>
 <span class="ruby-keyword">end</span></pre>
@@ -309,6 +316,39 @@
 
           
         </div><!-- num_cards-method -->
+
+      
+        <div id="to_s-method" class="method-detail ">
+          <a name="method-i-to_s"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">to_s</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>print out the player’s seat position and contents of hand</p>
+            
+
+            
+            <div class="method-source-code" id="to_s-source">
+<pre>
+<span class="ruby-comment"># File lib/player.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
+  <span class="ruby-node">&quot;Seat #{self.position}: #{self.hand.join(', ')}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- to_s-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- to_s-method -->
 
       
       </div><!-- public-instance-method-details -->

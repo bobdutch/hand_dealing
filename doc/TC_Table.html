@@ -5,7 +5,7 @@
 <head>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
 
-  <title>Class: TC_Deck</title>
+  <title>Class: TC_Table</title>
 
   <link rel="stylesheet" href="./rdoc.css" type="text/css" media="screen" />
 
@@ -34,8 +34,8 @@
         <div class="section-body">
           <ul>
           
-            <li><a href="./test/tc_deck_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
-              class="thickbox" title="test/tc_deck.rb">test/tc_deck.rb</a></li>
+            <li><a href="./test/tc_table_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="test/tc_table.rb">test/tc_table.rb</a></li>
           
           </ul>
         </div>
@@ -67,11 +67,11 @@
           
           <li><a href="#method-i-setup">#setup</a></li>
           
-          <li><a href="#method-i-test_draw_card">#test_draw_card</a></li>
+          <li><a href="#method-i-test_add_player">#test_add_player</a></li>
           
-          <li><a href="#method-i-test_empty">#test_empty</a></li>
+          <li><a href="#method-i-test_count">#test_count</a></li>
           
-          <li><a href="#method-i-test_shuffle">#test_shuffle</a></li>
+          <li><a href="#method-i-test_current_and_advance">#test_current_and_advance</a></li>
           
         </ul>
       </div>
@@ -147,7 +147,7 @@
   </div>
 
   <div id="documentation">
-    <h1 class="class">TC_Deck</h1>
+    <h1 class="class">TC_Table</h1>
 
     <div id="description" class="description">
       
@@ -188,9 +188,9 @@
             
             <div class="method-source-code" id="setup-source">
 <pre>
-<span class="ruby-comment"># File test/tc_deck.rb, line 8</span>
+<span class="ruby-comment"># File test/tc_table.rb, line 8</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">setup</span>
-  <span class="ruby-ivar">@deck</span> = <span class="ruby-constant">Deck</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@list</span> = <span class="ruby-constant">Table</span>.<span class="ruby-identifier">new</span>
 <span class="ruby-keyword">end</span></pre>
             </div><!-- setup-source -->
             
@@ -202,12 +202,12 @@
         </div><!-- setup-method -->
 
       
-        <div id="test_draw_card-method" class="method-detail ">
-          <a name="method-i-test_draw_card"></a>
+        <div id="test_add_player-method" class="method-detail ">
+          <a name="method-i-test_add_player"></a>
 
           
           <div class="method-heading">
-            <span class="method-name">test_draw_card</span><span
+            <span class="method-name">test_add_player</span><span
               class="method-args">()</span>
             <span class="method-click-advice">click to toggle source</span>
           </div>
@@ -219,32 +219,30 @@
             
 
             
-            <div class="method-source-code" id="test_draw_card-source">
+            <div class="method-source-code" id="test_add_player-source">
 <pre>
-<span class="ruby-comment"># File test/tc_deck.rb, line 12</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_draw_card</span>
-  <span class="ruby-identifier">assert_not_equal</span>(<span class="ruby-ivar">@deck</span>.<span class="ruby-identifier">cards</span>.<span class="ruby-identifier">length</span>, <span class="ruby-value">0</span>)
-  <span class="ruby-identifier">start_length</span> = <span class="ruby-ivar">@deck</span>.<span class="ruby-identifier">cards</span>.<span class="ruby-identifier">length</span>
-  <span class="ruby-ivar">@deck</span>.<span class="ruby-identifier">draw_card</span>
-  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">start_length</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>, <span class="ruby-ivar">@deck</span>.<span class="ruby-identifier">cards</span>.<span class="ruby-identifier">length</span>)
-  <span class="ruby-identifier">assert_not_equal</span>(<span class="ruby-identifier">start_length</span>, <span class="ruby-ivar">@deck</span>.<span class="ruby-identifier">cards</span>.<span class="ruby-identifier">length</span>)
+<span class="ruby-comment"># File test/tc_table.rb, line 12</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_add_player</span>
+  <span class="ruby-identifier">orig_count</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">count</span>
+  <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">add_player</span>(<span class="ruby-constant">Player</span>.<span class="ruby-identifier">new</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">orig_count</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>, <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">count</span>)
 <span class="ruby-keyword">end</span></pre>
-            </div><!-- test_draw_card-source -->
+            </div><!-- test_add_player-source -->
             
           </div>
 
           
 
           
-        </div><!-- test_draw_card-method -->
+        </div><!-- test_add_player-method -->
 
       
-        <div id="test_empty-method" class="method-detail ">
-          <a name="method-i-test_empty"></a>
+        <div id="test_count-method" class="method-detail ">
+          <a name="method-i-test_count"></a>
 
           
           <div class="method-heading">
-            <span class="method-name">test_empty</span><span
+            <span class="method-name">test_count</span><span
               class="method-args">()</span>
             <span class="method-click-advice">click to toggle source</span>
           </div>
@@ -256,33 +254,33 @@
             
 
             
-            <div class="method-source-code" id="test_empty-source">
+            <div class="method-source-code" id="test_count-source">
 <pre>
-<span class="ruby-comment"># File test/tc_deck.rb, line 28</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_empty</span>
-  <span class="ruby-identifier">assert_not_equal</span>(<span class="ruby-ivar">@deck</span>.<span class="ruby-identifier">cards</span>.<span class="ruby-identifier">length</span>, <span class="ruby-value">0</span>)
-  <span class="ruby-ivar">@deck</span>.<span class="ruby-identifier">cards</span>.<span class="ruby-identifier">length</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span>
-    <span class="ruby-identifier">assert</span>(<span class="ruby-operator">!</span><span class="ruby-ivar">@deck</span>.<span class="ruby-identifier">empty?</span>)
-    <span class="ruby-ivar">@deck</span>.<span class="ruby-identifier">draw_card</span>
+<span class="ruby-comment"># File test/tc_table.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_count</span>
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">0</span>, <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">count</span>)
+  <span class="ruby-identifier">players_to_add</span> = <span class="ruby-value">5</span>
+  <span class="ruby-identifier">players_to_add</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">add_player</span>(<span class="ruby-constant">Player</span>.<span class="ruby-identifier">new</span>)
   <span class="ruby-keyword">end</span>
-  <span class="ruby-identifier">assert</span>(<span class="ruby-ivar">@deck</span>.<span class="ruby-identifier">empty?</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">players_to_add</span>, <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">count</span>)
 <span class="ruby-keyword">end</span></pre>
-            </div><!-- test_empty-source -->
+            </div><!-- test_count-source -->
             
           </div>
 
           
 
           
-        </div><!-- test_empty-method -->
+        </div><!-- test_count-method -->
 
       
-        <div id="test_shuffle-method" class="method-detail ">
-          <a name="method-i-test_shuffle"></a>
+        <div id="test_current_and_advance-method" class="method-detail ">
+          <a name="method-i-test_current_and_advance"></a>
 
           
           <div class="method-heading">
-            <span class="method-name">test_shuffle</span><span
+            <span class="method-name">test_current_and_advance</span><span
               class="method-args">()</span>
             <span class="method-click-advice">click to toggle source</span>
           </div>
@@ -290,27 +288,47 @@
 
           <div class="method-description">
             
-            <p>there is a 1/52 chance that a shuffled deck could be the same so this test
-is dubious</p>
+            
             
 
             
-            <div class="method-source-code" id="test_shuffle-source">
+            <div class="method-source-code" id="test_current_and_advance-source">
 <pre>
-<span class="ruby-comment"># File test/tc_deck.rb, line 22</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_shuffle</span>
-  <span class="ruby-identifier">pre_shuffle</span> = <span class="ruby-ivar">@deck</span>.<span class="ruby-identifier">cards</span>
-  <span class="ruby-ivar">@deck</span>.<span class="ruby-identifier">shuffle!</span>
-  <span class="ruby-identifier">assert_not_equal</span>(<span class="ruby-ivar">@deck</span>.<span class="ruby-identifier">cards</span>, <span class="ruby-identifier">pre_shuffle</span>, <span class="ruby-string">&quot;these probably shouldn't be the same, run the test again?&quot;</span>)
+<span class="ruby-comment"># File test/tc_table.rb, line 18</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_current_and_advance</span>
+  <span class="ruby-comment">#start with no players</span>
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-ivar">@list</span>.<span class="ruby-identifier">current</span>, <span class="ruby-keyword">nil</span>)
+
+  <span class="ruby-comment">#add one and make sure he/she's current</span>
+  <span class="ruby-identifier">player</span> = <span class="ruby-constant">Player</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">add_player</span>(<span class="ruby-identifier">player</span>)
+  <span class="ruby-identifier">assert_instance_of</span>(<span class="ruby-constant">Player</span>, <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">current</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">player</span>, <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">current</span>)
+  <span class="ruby-identifier">first_current</span> = <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">current</span>
+
+  <span class="ruby-comment">#advance a list of one shouldn't change current</span>
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-ivar">@list</span>.<span class="ruby-identifier">current</span>, <span class="ruby-identifier">first_current</span>)
+  <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">advance</span>
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-ivar">@list</span>.<span class="ruby-identifier">current</span>, <span class="ruby-identifier">first_current</span>)
+
+  <span class="ruby-comment">#add another and advance</span>
+  <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">add_player</span>(<span class="ruby-constant">Player</span>.<span class="ruby-identifier">new</span>)
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-ivar">@list</span>.<span class="ruby-identifier">current</span>, <span class="ruby-identifier">first_current</span>)
+  <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">advance</span>
+  <span class="ruby-identifier">assert_not_equal</span>(<span class="ruby-ivar">@list</span>.<span class="ruby-identifier">current</span>, <span class="ruby-identifier">first_current</span>)
+
+  <span class="ruby-comment">#make sure it loops back to the first player</span>
+  <span class="ruby-ivar">@list</span>.<span class="ruby-identifier">advance</span>
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-ivar">@list</span>.<span class="ruby-identifier">current</span>, <span class="ruby-identifier">first_current</span>)
 <span class="ruby-keyword">end</span></pre>
-            </div><!-- test_shuffle-source -->
+            </div><!-- test_current_and_advance-source -->
             
           </div>
 
           
 
           
-        </div><!-- test_shuffle-method -->
+        </div><!-- test_current_and_advance-method -->
 
       
       </div><!-- public-instance-method-details -->
