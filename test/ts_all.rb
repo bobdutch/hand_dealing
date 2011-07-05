@@ -1,8 +1,6 @@
 #!/usr/bin/env ruby
-$LOAD_PATH << File.join(File.dirname(__FILE__), '..', 'test')
+test_cases = Dir.glob(File.join(File.dirname(__FILE__), 'tc_*.rb'))
+test_cases.each do |tc|
+  require File.expand_path(tc)
+end
 
-require 'tc_card'
-require 'tc_deck'
-require 'tc_table'
-require 'tc_player'
-require 'tc_game'

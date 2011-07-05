@@ -1,10 +1,6 @@
 #!/usr/bin/env ruby
 require 'test/unit'
-require "#{File.dirname(__FILE__)}/../lib/game.rb"
-require "#{File.dirname(__FILE__)}/../lib/table.rb"
-require "#{File.dirname(__FILE__)}/../lib/player.rb"
-require "#{File.dirname(__FILE__)}/../lib/deck.rb"
-require "#{File.dirname(__FILE__)}/../lib/card.rb"
+require File.expand_path("#{File.dirname(__FILE__)}/../lib/game.rb")
 
 #test cases for Game model
 class TC_Game < Test::Unit::TestCase

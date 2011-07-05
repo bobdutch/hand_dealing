@@ -1,3 +1,4 @@
+require File.expand_path(File.join(File.dirname(__FILE__), 'player.rb'))
 #a collection class for Players, represents the game table
 #a table is an array of arrays where each array has two elements:
 #the seat position of the player, and the player object itself

@@ -1,3 +1,5 @@
+require File.expand_path("#{File.dirname(__FILE__)}/../lib/card.rb")
+
 #a container class for Card objects
 class Deck
 

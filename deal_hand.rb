@@ -1,12 +1,8 @@
 #!/usr/bin/env ruby
 require 'timeout'
-
-$LOAD_PATH << File.join(File.dirname(__FILE__), 'lib')
-require 'player'
-require 'game'
-require 'card'
-require 'deck'
-require 'table'
+%w(player game card deck table).each do |klass|
+  require File.expand_path(File.join(File.dirname(__FILE__),'lib',klass))
+end
 
 TIMEOUT_MINUTES = 5
 

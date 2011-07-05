@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 require 'test/unit'
-require "#{File.dirname(__FILE__)}/../lib/player.rb"
+require File.expand_path("#{File.dirname(__FILE__)}/../lib/player.rb")
 
 #test cases for Player model
 class TC_Player < Test::Unit::TestCase

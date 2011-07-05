@@ -91,10 +91,6 @@
         
           <li class="file"><a href="./REQUIREMENTS.html">REQUIREMENTS</a></li>
         
-          <li class="file"><a href="./TODO.html">TODO</a></li>
-        
-          <li class="file"><a href="./rb.html">rb</a></li>
-        
         </ul>
       </div>
       
@@ -214,7 +210,7 @@
             
             <div class="method-source-code" id="new-source">
 <pre>
-<span class="ruby-comment"># File lib/deck.rb, line 7</span>
+<span class="ruby-comment"># File lib/deck.rb, line 9</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
   <span class="ruby-ivar">@cards</span> = <span class="ruby-constant">Card</span><span class="ruby-operator">::</span><span class="ruby-constant">RANKS</span>.<span class="ruby-identifier">product</span>(<span class="ruby-constant">Card</span><span class="ruby-operator">::</span><span class="ruby-constant">SUITS</span>).<span class="ruby-identifier">collect</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">rank</span>, <span class="ruby-identifier">suit</span><span class="ruby-operator">|</span> <span class="ruby-constant">Card</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">suit</span>, <span class="ruby-identifier">rank</span>) }
 <span class="ruby-keyword">end</span></pre>
@@ -253,7 +249,7 @@
             
             <div class="method-source-code" id="draw_card-source">
 <pre>
-<span class="ruby-comment"># File lib/deck.rb, line 22</span>
+<span class="ruby-comment"># File lib/deck.rb, line 24</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">draw_card</span>
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">cards</span>.<span class="ruby-identifier">pop</span>
 <span class="ruby-keyword">end</span></pre>
@@ -286,7 +282,7 @@
             
             <div class="method-source-code" id="empty-3F-source">
 <pre>
-<span class="ruby-comment"># File lib/deck.rb, line 17</span>
+<span class="ruby-comment"># File lib/deck.rb, line 19</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">empty?</span>
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">cards</span>.<span class="ruby-identifier">empty?</span>
 <span class="ruby-keyword">end</span></pre>
@@ -319,7 +315,7 @@
             
             <div class="method-source-code" id="shuffle-21-source">
 <pre>
-<span class="ruby-comment"># File lib/deck.rb, line 12</span>
+<span class="ruby-comment"># File lib/deck.rb, line 14</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">shuffle!</span>
   <span class="ruby-ivar">@cards</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">cards</span>.<span class="ruby-identifier">sort_by</span> { <span class="ruby-identifier">rand</span> }
 <span class="ruby-keyword">end</span></pre>

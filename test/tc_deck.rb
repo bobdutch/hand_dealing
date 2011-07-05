@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 require 'test/unit'
-require "#{File.dirname(__FILE__)}/../lib/deck.rb"
-require "#{File.dirname(__FILE__)}/../lib/card.rb"
+require File.expand_path("#{File.dirname(__FILE__)}/../lib/deck.rb")
 
 #test cases for Deck model
 class TC_Deck < Test::Unit::TestCase

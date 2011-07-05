@@ -1,3 +1,5 @@
+require File.expand_path(File.join(File.dirname(__FILE__), 'card.rb'))
+
 #represents a person who is playing the game
 class Player
   attr_reader :hand

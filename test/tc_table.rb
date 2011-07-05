@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 require 'test/unit'
-require "#{File.dirname(__FILE__)}/../lib/table.rb"
-require "#{File.dirname(__FILE__)}/../lib/player.rb"
+require File.expand_path("#{File.dirname(__FILE__)}/../lib/table.rb")
 
 #test cases for Table model
 class TC_Table < Test::Unit::TestCase

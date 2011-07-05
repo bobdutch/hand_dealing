@@ -6,9 +6,10 @@ It has been tested on OSX with ruby 1.8.7 and ruby 1.9.2.
 It does not require any libraries outside of the ruby standard library
 
 
-Change directory to hand_dealing (from where the source was extracted) and run
+To Run, change directory to hand_dealing (from where the source was extracted) and run
   ruby deal_hand.rb
-It can be run from other directories ex.
+
+Also it could be run from other directories ex.
   cd ..
   ruby hand_dealing/deal_hand.rb
 or if the file is executable
@@ -22,7 +23,8 @@ the hands dealt to the players to standard out.
   * Input is cast to an integer
     ex. ("1.5" would become 1, "2 foo" becomes 2)
   * There is no limit to the number of players or cards per hand.
-    Cards are dealt one at a time to the players starting with seat one.    Therefore, if the number of players multiplied by the number of
+    Cards are dealt one at a time to the players starting with seat one.
+    Therefore, if the number of players multiplied by the number of
     cards per hand is greater than 52 then the players will start with
     an uneven amount of cards 
 

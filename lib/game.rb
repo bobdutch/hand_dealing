@@ -1,3 +1,7 @@
+require File.expand_path(File.join(File.dirname(__FILE__), 'deck.rb'))
+require File.expand_path(File.join(File.dirname(__FILE__), 'card.rb'))
+require File.expand_path(File.join(File.dirname(__FILE__), 'table.rb'))
+
 #An instance of Game sets up and controls the flow of the game
 #by acting as dealer, score keeper, etc.
 class Game

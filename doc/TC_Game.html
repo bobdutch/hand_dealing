@@ -89,10 +89,6 @@
         
           <li class="file"><a href="./REQUIREMENTS.html">REQUIREMENTS</a></li>
         
-          <li class="file"><a href="./TODO.html">TODO</a></li>
-        
-          <li class="file"><a href="./rb.html">rb</a></li>
-        
         </ul>
       </div>
       
@@ -190,7 +186,7 @@
             
             <div class="method-source-code" id="test_deal-source">
 <pre>
-<span class="ruby-comment"># File test/tc_game.rb, line 55</span>
+<span class="ruby-comment"># File test/tc_game.rb, line 51</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_deal</span>
   <span class="ruby-comment">#initialize game</span>
   <span class="ruby-ivar">@game</span> = <span class="ruby-constant">Game</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">5</span>,<span class="ruby-value">6</span>)
@@ -259,7 +255,7 @@
             
             <div class="method-source-code" id="test_new-source">
 <pre>
-<span class="ruby-comment"># File test/tc_game.rb, line 12</span>
+<span class="ruby-comment"># File test/tc_game.rb, line 8</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_new</span>
   <span class="ruby-identifier">assert_nil</span>(<span class="ruby-ivar">@game</span>)
 
@@ -331,7 +327,7 @@
             
             <div class="method-source-code" id="test_table_to_s-source">
 <pre>
-<span class="ruby-comment"># File test/tc_game.rb, line 96</span>
+<span class="ruby-comment"># File test/tc_game.rb, line 92</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_table_to_s</span>
   <span class="ruby-identifier">test_arguments</span> = [[<span class="ruby-value">5</span>,<span class="ruby-value">6</span>],[<span class="ruby-value">1</span>,<span class="ruby-value">10</span>],[<span class="ruby-value">25</span>,<span class="ruby-value">10</span>], [<span class="ruby-value">53</span>,<span class="ruby-value">10</span>]]
   <span class="ruby-identifier">test_arguments</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">num_players</span>, <span class="ruby-identifier">cards_per_hand</span><span class="ruby-operator">|</span>
