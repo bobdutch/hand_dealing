@@ -11,6 +11,7 @@ begin
     print "Enter the number of players: "
     @num_players = gets.to_i
   end
+
   unless @cards_per_hand
     print "Enter the number of cards in a hand: "
     @cards_per_hand = gets.to_i
@@ -18,14 +19,18 @@ begin
 
   g = Game.new(@num_players, @cards_per_hand)
   puts g.players
+
+
 rescue NumPlayersError => e
   @num_players = nil
-  puts "\n#{e}"
+  puts "\n" + e
   retry
+
 rescue CardsPerHandError => e
   @cards_per_hand = nil
-  puts "\n#{e}"
+  puts "\n" + e
   retry
+
 rescue Interrupt
   puts "\nGoodbye."
 end
