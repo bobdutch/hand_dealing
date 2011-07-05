@@ -1,8 +1,4 @@
-- test coverage of all instance methods
-- we shouldn't have to explicitly set player's positions
 - audit attr_accessors, what shouldn't we expose?
 - check for code reek
 - instruction to run app and tests
-- possibly make Hand a model 
-- suits and ranks should be in the Card class, not Deck
 - add shebang to all tests

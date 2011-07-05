@@ -3,7 +3,7 @@ require "#{File.dirname(__FILE__)}/../lib/card.rb"
 
 class TC_Card < Test::Unit::TestCase
   def setup
-    @card = Card.new(Deck::SUITS[rand(Deck::SUITS.size)], Deck::RANKS[rand(Deck::RANKS.size)]) 
+    @card = Card.new(Card::SUITS[rand(Card::SUITS.size)], Card::RANKS[rand(Card::RANKS.size)]) 
   end
 
   #we shouldn't be able to change a card's suit or rank
