@@ -10,7 +10,7 @@ class TC_SeatList < Test::Unit::TestCase
 
   def test_add_player
     orig_count = @list.count
-    @list.add_player(Player.new(orig_count + 1))
+    @list.add_player(Player.new)
     assert_equal(orig_count + 1, @list.count)
   end
 
@@ -19,7 +19,7 @@ class TC_SeatList < Test::Unit::TestCase
     assert_equal(@list.current, nil)
 
     #add one and make sure he/she's current
-    player = Player.new(1)
+    player = Player.new
     @list.add_player(player)
     assert_instance_of(Player, @list.current)
     assert_equal(player, @list.current)
@@ -31,7 +31,7 @@ class TC_SeatList < Test::Unit::TestCase
     assert_equal(@list.current, first_current)
 
     #add another and advance
-    @list.add_player(Player.new(2))
+    @list.add_player(Player.new)
     assert_equal(@list.current, first_current)
     @list.advance
     assert_not_equal(@list.current, first_current)
@@ -45,8 +45,8 @@ class TC_SeatList < Test::Unit::TestCase
   def test_count
     assert_equal(0, @list.count)
     players_to_add = 5
-    players_to_add.times do |i|
-      @list.add_player(Player.new(i))
+    players_to_add.times do
+      @list.add_player(Player.new)
     end
     assert_equal(players_to_add, @list.count)
   end

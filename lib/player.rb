@@ -1,10 +1,8 @@
 class Player
-  attr_accessor :hand
-  attr_reader :position
+  attr_accessor :hand, :position
 
-  def initialize(position)
+  def initialize
     self.hand = Array.new
-    @position = position
   end
 
   def num_cards

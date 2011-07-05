@@ -22,9 +22,9 @@ class Game
     @deck = Deck.new
 
     @players = SeatList.new
-    @num_players.times do |i|
-      position = i + 1
-      @players.add_player(Player.new(position))
+    @num_players.times do
+      player = Player.new
+      @players.add_player(player)
     end
 
     #shuffle

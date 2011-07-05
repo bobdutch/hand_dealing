@@ -1,9 +1,11 @@
 class SeatList
   def initialize
     @seats = Array.new
+    @counter = 0
   end
 
   def add_player(player)
+    player.position = @counter = @counter + 1 
     @seats.push(player)
     self
   end
