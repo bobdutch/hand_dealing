@@ -6,13 +6,17 @@ require 'card'
 require 'deck'
 require 'seat_list'
 
+begin
+  print "Enter the number of players: "
+  num_players = gets.to_i
+  print "Enter the number of cards in a hand: "
+  cards_per_hand = gets.to_i
 
-#TODO get input from command line
-print "Enter the number of players: "
-num_players = gets.to_i
-print "Enter the number of cards in a hand: "
-cards_per_hand = gets.to_i
-
-g = Game.new(num_players, cards_per_hand)
-puts g.players
+  g = Game.new(num_players, cards_per_hand)
+  puts g.players
+rescue ArgumentError => e
+  puts ''
+  puts e
+  retry
+end
 

@@ -10,8 +10,8 @@ class Game
 
     #validate
     attributes = {
-      'number of players' => self.num_players,
-      'cards per hand' => self.cards_per_hand
+      'Number of players' => self.num_players,
+      'Cards per hand' => self.cards_per_hand
     }
 
     attributes.each do |name, value|
