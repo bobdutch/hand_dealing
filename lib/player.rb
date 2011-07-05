@@ -17,5 +17,10 @@ class Player
   def get_card(card)
     self.hand << card
   end
+
+  #print out the player's seat position and contents of hand
+  def to_s
+    "Seat #{self.position}: #{self.hand.join(', ')}"
+  end
 end
 

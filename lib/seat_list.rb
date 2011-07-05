@@ -45,10 +45,8 @@ class SeatList
   
   #prints out players and the cards in their hands
   def to_s
-    str = ''
-    @seats.sort_by {|p| p.position}.each do |player|
-      str += "Seat #{player.position}: #{player.hand.join(', ')}\n"
-    end
-    str
+    @seats.sort_by {|p| p.position}.collect do |player|
+      player.to_s
+    end.join("\n")
   end
 end
