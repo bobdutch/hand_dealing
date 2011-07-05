@@ -1,4 +1,8 @@
-Deal Hand README
+= About
+Deal Hand is a ruby a console app that will first
+prompt the user for the number of players in a card game.  Then it
+will prompt the user for the number of cards to deal each player.
+After that, it will simply print out the cards dealt to each player.
 
 = Running The Application
 The Deal Hand application requires that you have ruby in your path.
