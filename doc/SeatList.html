@@ -77,6 +77,8 @@
           
           <li><a href="#method-i-current">#current</a></li>
           
+          <li><a href="#method-i-each">#each</a></li>
+          
           <li><a href="#method-i-to_s">#to_s</a></li>
           
         </ul>
@@ -94,6 +96,8 @@
         <ul>
         
           <li class="file"><a href="./README.html">README</a></li>
+        
+          <li class="file"><a href="./REQUIREMENTS.html">REQUIREMENTS</a></li>
         
           <li class="file"><a href="./TODO.html">TODO</a></li>
         
@@ -118,9 +122,13 @@
         
           <li><a href="./Card.html">Card</a></li>
         
+          <li><a href="./CardsPerHandError.html">CardsPerHandError</a></li>
+        
           <li><a href="./Deck.html">Deck</a></li>
         
           <li><a href="./Game.html">Game</a></li>
+        
+          <li><a href="./NumPlayersError.html">NumPlayersError</a></li>
         
           <li><a href="./Player.html">Player</a></li>
         
@@ -129,6 +137,10 @@
           <li><a href="./TC_Card.html">TC_Card</a></li>
         
           <li><a href="./TC_Deck.html">TC_Deck</a></li>
+        
+          <li><a href="./TC_Game.html">TC_Game</a></li>
+        
+          <li><a href="./TC_Player.html">TC_Player</a></li>
         
           <li><a href="./TC_SeatList.html">TC_SeatList</a></li>
         
@@ -185,6 +197,7 @@
 <span class="ruby-comment"># File lib/seat_list.rb, line 2</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
   <span class="ruby-ivar">@seats</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@counter</span> = <span class="ruby-value">0</span>
 <span class="ruby-keyword">end</span></pre>
             </div><!-- new-source -->
             
@@ -221,8 +234,9 @@
             
             <div class="method-source-code" id="add_player-source">
 <pre>
-<span class="ruby-comment"># File lib/seat_list.rb, line 6</span>
+<span class="ruby-comment"># File lib/seat_list.rb, line 7</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">add_player</span>(<span class="ruby-identifier">player</span>)
+  <span class="ruby-identifier">player</span>.<span class="ruby-identifier">position</span> = <span class="ruby-ivar">@counter</span> = <span class="ruby-ivar">@counter</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span> 
   <span class="ruby-ivar">@seats</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">player</span>)
   <span class="ruby-keyword">self</span>
 <span class="ruby-keyword">end</span></pre>
@@ -255,7 +269,7 @@
             
             <div class="method-source-code" id="advance-source">
 <pre>
-<span class="ruby-comment"># File lib/seat_list.rb, line 15</span>
+<span class="ruby-comment"># File lib/seat_list.rb, line 17</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">advance</span>
   <span class="ruby-ivar">@seats</span>.<span class="ruby-identifier">push</span>(<span class="ruby-ivar">@seats</span>.<span class="ruby-identifier">shift</span>)
   <span class="ruby-keyword">self</span>
@@ -289,7 +303,7 @@
             
             <div class="method-source-code" id="any-3F-source">
 <pre>
-<span class="ruby-comment"># File lib/seat_list.rb, line 20</span>
+<span class="ruby-comment"># File lib/seat_list.rb, line 22</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">any?</span>(*<span class="ruby-identifier">args</span>, &amp;<span class="ruby-identifier">block</span>)
   <span class="ruby-ivar">@seats</span>.<span class="ruby-identifier">any?</span>(*<span class="ruby-identifier">args</span>, &amp;<span class="ruby-identifier">block</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -322,7 +336,7 @@
             
             <div class="method-source-code" id="count-source">
 <pre>
-<span class="ruby-comment"># File lib/seat_list.rb, line 24</span>
+<span class="ruby-comment"># File lib/seat_list.rb, line 30</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">count</span>
   <span class="ruby-ivar">@seats</span>.<span class="ruby-identifier">count</span>
 <span class="ruby-keyword">end</span></pre>
@@ -355,7 +369,7 @@
             
             <div class="method-source-code" id="current-source">
 <pre>
-<span class="ruby-comment"># File lib/seat_list.rb, line 11</span>
+<span class="ruby-comment"># File lib/seat_list.rb, line 13</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">current</span>
   <span class="ruby-ivar">@seats</span>.<span class="ruby-identifier">first</span>
 <span class="ruby-keyword">end</span></pre>
@@ -367,6 +381,39 @@
 
           
         </div><!-- current-method -->
+
+      
+        <div id="each-method" class="method-detail ">
+          <a name="method-i-each"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">each</span><span
+              class="method-args">(*args, &block)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="each-source">
+<pre>
+<span class="ruby-comment"># File lib/seat_list.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">each</span>(*<span class="ruby-identifier">args</span>, &amp;<span class="ruby-identifier">block</span>)
+  <span class="ruby-ivar">@seats</span>.<span class="ruby-identifier">each</span>(*<span class="ruby-identifier">args</span>, &amp;<span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- each-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- each-method -->
 
       
         <div id="to_s-method" class="method-detail ">
@@ -388,7 +435,7 @@
             
             <div class="method-source-code" id="to_s-source">
 <pre>
-<span class="ruby-comment"># File lib/seat_list.rb, line 28</span>
+<span class="ruby-comment"># File lib/seat_list.rb, line 34</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
   <span class="ruby-identifier">str</span> = <span class="ruby-string">''</span>
   <span class="ruby-ivar">@seats</span>.<span class="ruby-identifier">sort_by</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">position</span>}.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span>

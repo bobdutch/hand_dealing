@@ -5,7 +5,7 @@
 <head>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
 
-  <title>Class: TC_Card</title>
+  <title>Class: TC_Player</title>
 
   <link rel="stylesheet" href="./rdoc.css" type="text/css" media="screen" />
 
@@ -34,8 +34,8 @@
         <div class="section-body">
           <ul>
           
-            <li><a href="./test/tc_card_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
-              class="thickbox" title="test/tc_card.rb">test/tc_card.rb</a></li>
+            <li><a href="./test/tc_player_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="test/tc_player.rb">test/tc_player.rb</a></li>
           
           </ul>
         </div>
@@ -67,9 +67,7 @@
           
           <li><a href="#method-i-setup">#setup</a></li>
           
-          <li><a href="#method-i-test_change_suit_or_rank">#test_change_suit_or_rank</a></li>
-          
-          <li><a href="#method-i-test_to_s">#test_to_s</a></li>
+          <li><a href="#method-i-test_get_card">#test_get_card</a></li>
           
         </ul>
       </div>
@@ -143,7 +141,7 @@
   </div>
 
   <div id="documentation">
-    <h1 class="class">TC_Card</h1>
+    <h1 class="class">TC_Player</h1>
 
     <div id="description" class="description">
       
@@ -184,9 +182,9 @@
             
             <div class="method-source-code" id="setup-source">
 <pre>
-<span class="ruby-comment"># File test/tc_card.rb, line 5</span>
+<span class="ruby-comment"># File test/tc_player.rb, line 5</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">setup</span>
-  <span class="ruby-ivar">@card</span> = <span class="ruby-constant">Card</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">Card</span><span class="ruby-operator">::</span><span class="ruby-constant">SUITS</span>[<span class="ruby-identifier">rand</span>(<span class="ruby-constant">Card</span><span class="ruby-operator">::</span><span class="ruby-constant">SUITS</span>.<span class="ruby-identifier">size</span>)], <span class="ruby-constant">Card</span><span class="ruby-operator">::</span><span class="ruby-constant">RANKS</span>[<span class="ruby-identifier">rand</span>(<span class="ruby-constant">Card</span><span class="ruby-operator">::</span><span class="ruby-constant">RANKS</span>.<span class="ruby-identifier">size</span>)]) 
+  <span class="ruby-ivar">@player</span> = <span class="ruby-constant">Player</span>.<span class="ruby-identifier">new</span>
 <span class="ruby-keyword">end</span></pre>
             </div><!-- setup-source -->
             
@@ -198,50 +196,12 @@
         </div><!-- setup-method -->
 
       
-        <div id="test_change_suit_or_rank-method" class="method-detail ">
-          <a name="method-i-test_change_suit_or_rank"></a>
+        <div id="test_get_card-method" class="method-detail ">
+          <a name="method-i-test_get_card"></a>
 
           
           <div class="method-heading">
-            <span class="method-name">test_change_suit_or_rank</span><span
-              class="method-args">()</span>
-            <span class="method-click-advice">click to toggle source</span>
-          </div>
-          
-
-          <div class="method-description">
-            
-            <p>we shouldn’t be able to change a card’s suit or rank</p>
-            
-
-            
-            <div class="method-source-code" id="test_change_suit_or_rank-source">
-<pre>
-<span class="ruby-comment"># File test/tc_card.rb, line 10</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_change_suit_or_rank</span>
-  <span class="ruby-identifier">assert_raise</span>(<span class="ruby-constant">NoMethodError</span>) <span class="ruby-keyword">do</span>
-    <span class="ruby-ivar">@cart</span>.<span class="ruby-identifier">suit</span> = <span class="ruby-string">'anything'</span>
-  <span class="ruby-keyword">end</span>
-  <span class="ruby-identifier">assert_raise</span>(<span class="ruby-constant">NoMethodError</span>) <span class="ruby-keyword">do</span>
-    <span class="ruby-ivar">@cart</span>.<span class="ruby-identifier">rank</span> = <span class="ruby-string">'anything'</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></pre>
-            </div><!-- test_change_suit_or_rank-source -->
-            
-          </div>
-
-          
-
-          
-        </div><!-- test_change_suit_or_rank-method -->
-
-      
-        <div id="test_to_s-method" class="method-detail ">
-          <a name="method-i-test_to_s"></a>
-
-          
-          <div class="method-heading">
-            <span class="method-name">test_to_s</span><span
+            <span class="method-name">test_get_card</span><span
               class="method-args">()</span>
             <span class="method-click-advice">click to toggle source</span>
           </div>
@@ -253,22 +213,22 @@
             
 
             
-            <div class="method-source-code" id="test_to_s-source">
+            <div class="method-source-code" id="test_get_card-source">
 <pre>
-<span class="ruby-comment"># File test/tc_card.rb, line 19</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_to_s</span>
-  <span class="ruby-identifier">rank</span>, <span class="ruby-identifier">suit</span> = <span class="ruby-ivar">@card</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">''</span>)
-  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">suit</span>, <span class="ruby-ivar">@card</span>.<span class="ruby-identifier">suit</span>)
-  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">rank</span>, <span class="ruby-ivar">@card</span>.<span class="ruby-identifier">rank</span>.<span class="ruby-identifier">to_s</span>)
+<span class="ruby-comment"># File test/tc_player.rb, line 9</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_get_card</span>
+  <span class="ruby-identifier">orig_count</span> = <span class="ruby-ivar">@player</span>.<span class="ruby-identifier">num_cards</span>
+  <span class="ruby-ivar">@player</span>.<span class="ruby-identifier">get_card</span>(<span class="ruby-constant">Card</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">'s'</span>,<span class="ruby-string">'2'</span>))
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">orig_count</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>, <span class="ruby-ivar">@player</span>.<span class="ruby-identifier">num_cards</span>)
 <span class="ruby-keyword">end</span></pre>
-            </div><!-- test_to_s-source -->
+            </div><!-- test_get_card-source -->
             
           </div>
 
           
 
           
-        </div><!-- test_to_s-method -->
+        </div><!-- test_get_card-method -->
 
       
       </div><!-- public-instance-method-details -->

@@ -67,7 +67,11 @@
           
           <li><a href="#method-i-setup">#setup</a></li>
           
-          <li><a href="#method-i-test_draw">#test_draw</a></li>
+          <li><a href="#method-i-test_draw_card">#test_draw_card</a></li>
+          
+          <li><a href="#method-i-test_empty">#test_empty</a></li>
+          
+          <li><a href="#method-i-test_shuffle">#test_shuffle</a></li>
           
         </ul>
       </div>
@@ -84,6 +88,8 @@
         <ul>
         
           <li class="file"><a href="./README.html">README</a></li>
+        
+          <li class="file"><a href="./REQUIREMENTS.html">REQUIREMENTS</a></li>
         
           <li class="file"><a href="./TODO.html">TODO</a></li>
         
@@ -108,9 +114,13 @@
         
           <li><a href="./Card.html">Card</a></li>
         
+          <li><a href="./CardsPerHandError.html">CardsPerHandError</a></li>
+        
           <li><a href="./Deck.html">Deck</a></li>
         
           <li><a href="./Game.html">Game</a></li>
+        
+          <li><a href="./NumPlayersError.html">NumPlayersError</a></li>
         
           <li><a href="./Player.html">Player</a></li>
         
@@ -119,6 +129,10 @@
           <li><a href="./TC_Card.html">TC_Card</a></li>
         
           <li><a href="./TC_Deck.html">TC_Deck</a></li>
+        
+          <li><a href="./TC_Game.html">TC_Game</a></li>
+        
+          <li><a href="./TC_Player.html">TC_Player</a></li>
         
           <li><a href="./TC_SeatList.html">TC_SeatList</a></li>
         
@@ -186,12 +200,12 @@
         </div><!-- setup-method -->
 
       
-        <div id="test_draw-method" class="method-detail ">
-          <a name="method-i-test_draw"></a>
+        <div id="test_draw_card-method" class="method-detail ">
+          <a name="method-i-test_draw_card"></a>
 
           
           <div class="method-heading">
-            <span class="method-name">test_draw</span><span
+            <span class="method-name">test_draw_card</span><span
               class="method-args">()</span>
             <span class="method-click-advice">click to toggle source</span>
           </div>
@@ -203,23 +217,98 @@
             
 
             
-            <div class="method-source-code" id="test_draw-source">
+            <div class="method-source-code" id="test_draw_card-source">
 <pre>
 <span class="ruby-comment"># File test/tc_deck.rb, line 11</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_draw</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_draw_card</span>
+  <span class="ruby-identifier">assert_not_equal</span>(<span class="ruby-ivar">@deck</span>.<span class="ruby-identifier">cards</span>.<span class="ruby-identifier">length</span>, <span class="ruby-value">0</span>)
   <span class="ruby-identifier">start_length</span> = <span class="ruby-ivar">@deck</span>.<span class="ruby-identifier">cards</span>.<span class="ruby-identifier">length</span>
   <span class="ruby-ivar">@deck</span>.<span class="ruby-identifier">draw_card</span>
   <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">start_length</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>, <span class="ruby-ivar">@deck</span>.<span class="ruby-identifier">cards</span>.<span class="ruby-identifier">length</span>)
   <span class="ruby-identifier">assert_not_equal</span>(<span class="ruby-identifier">start_length</span>, <span class="ruby-ivar">@deck</span>.<span class="ruby-identifier">cards</span>.<span class="ruby-identifier">length</span>)
 <span class="ruby-keyword">end</span></pre>
-            </div><!-- test_draw-source -->
+            </div><!-- test_draw_card-source -->
             
           </div>
 
           
 
           
-        </div><!-- test_draw-method -->
+        </div><!-- test_draw_card-method -->
+
+      
+        <div id="test_empty-method" class="method-detail ">
+          <a name="method-i-test_empty"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">test_empty</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="test_empty-source">
+<pre>
+<span class="ruby-comment"># File test/tc_deck.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_empty</span>
+  <span class="ruby-identifier">assert_not_equal</span>(<span class="ruby-ivar">@deck</span>.<span class="ruby-identifier">cards</span>.<span class="ruby-identifier">length</span>, <span class="ruby-value">0</span>)
+  <span class="ruby-ivar">@deck</span>.<span class="ruby-identifier">cards</span>.<span class="ruby-identifier">length</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">assert</span>(<span class="ruby-operator">!</span><span class="ruby-ivar">@deck</span>.<span class="ruby-identifier">empty?</span>)
+    <span class="ruby-ivar">@deck</span>.<span class="ruby-identifier">draw_card</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">assert</span>(<span class="ruby-ivar">@deck</span>.<span class="ruby-identifier">empty?</span>)
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- test_empty-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- test_empty-method -->
+
+      
+        <div id="test_shuffle-method" class="method-detail ">
+          <a name="method-i-test_shuffle"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">test_shuffle</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>there is a 1/52 chance that a shuffled deck could be the same so this test
+is dubious</p>
+            
+
+            
+            <div class="method-source-code" id="test_shuffle-source">
+<pre>
+<span class="ruby-comment"># File test/tc_deck.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_shuffle</span>
+  <span class="ruby-identifier">pre_shuffle</span> = <span class="ruby-ivar">@deck</span>.<span class="ruby-identifier">cards</span>
+  <span class="ruby-ivar">@deck</span>.<span class="ruby-identifier">shuffle!</span>
+  <span class="ruby-identifier">assert_not_equal</span>(<span class="ruby-ivar">@deck</span>.<span class="ruby-identifier">cards</span>, <span class="ruby-identifier">pre_shuffle</span>, <span class="ruby-string">&quot;these probably shouldn't be the same, run the test again?&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- test_shuffle-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- test_shuffle-method -->
 
       
       </div><!-- public-instance-method-details -->

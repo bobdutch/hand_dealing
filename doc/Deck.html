@@ -71,7 +71,7 @@
           
           <li><a href="#method-i-empty-3F">#empty?</a></li>
           
-          <li><a href="#method-i-shuffle">#shuffle</a></li>
+          <li><a href="#method-i-shuffle-21">#shuffle!</a></li>
           
         </ul>
       </div>
@@ -88,6 +88,8 @@
         <ul>
         
           <li class="file"><a href="./README.html">README</a></li>
+        
+          <li class="file"><a href="./REQUIREMENTS.html">REQUIREMENTS</a></li>
         
           <li class="file"><a href="./TODO.html">TODO</a></li>
         
@@ -112,9 +114,13 @@
         
           <li><a href="./Card.html">Card</a></li>
         
+          <li><a href="./CardsPerHandError.html">CardsPerHandError</a></li>
+        
           <li><a href="./Deck.html">Deck</a></li>
         
           <li><a href="./Game.html">Game</a></li>
+        
+          <li><a href="./NumPlayersError.html">NumPlayersError</a></li>
         
           <li><a href="./Player.html">Player</a></li>
         
@@ -123,6 +129,10 @@
           <li><a href="./TC_Card.html">TC_Card</a></li>
         
           <li><a href="./TC_Deck.html">TC_Deck</a></li>
+        
+          <li><a href="./TC_Game.html">TC_Game</a></li>
+        
+          <li><a href="./TC_Player.html">TC_Player</a></li>
         
           <li><a href="./TC_SeatList.html">TC_SeatList</a></li>
         
@@ -148,24 +158,6 @@
       
 
       
-      <!-- Constants -->
-      <div id="constants-list" class="section">
-        <h3 class="section-header">Constants</h3>
-        <dl>
-        
-          <dt><a name="RANKS">RANKS</a></dt>
-          
-          <dd class="description"></dd>
-          
-        
-          <dt><a name="SUITS">SUITS</a></dt>
-          
-          <dd class="description"></dd>
-          
-        
-        </dl>
-      </div>
-      
 
       
       <!-- Attributes -->
@@ -176,11 +168,9 @@
         <div id="cards-attribute-method" class="method-detail">
           <a name="cards"></a>
           
-          <a name="cards="></a>
-          
           <div class="method-heading attribute-method-heading">
             <span class="method-name">cards</span><span
-              class="attribute-access-type">[RW]</span>
+              class="attribute-access-type">[R]</span>
           </div>
 
           <div class="method-description">
@@ -218,9 +208,9 @@
             
             <div class="method-source-code" id="new-source">
 <pre>
-<span class="ruby-comment"># File lib/deck.rb, line 8</span>
+<span class="ruby-comment"># File lib/deck.rb, line 5</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
-  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">cards</span> = <span class="ruby-constant">RANKS</span>.<span class="ruby-identifier">product</span>(<span class="ruby-constant">SUITS</span>).<span class="ruby-identifier">collect</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-constant">Card</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">c</span>[<span class="ruby-value">1</span>],<span class="ruby-identifier">c</span>[<span class="ruby-value">0</span>]) }
+  <span class="ruby-ivar">@cards</span> = <span class="ruby-constant">Card</span><span class="ruby-operator">::</span><span class="ruby-constant">RANKS</span>.<span class="ruby-identifier">product</span>(<span class="ruby-constant">Card</span><span class="ruby-operator">::</span><span class="ruby-constant">SUITS</span>).<span class="ruby-identifier">collect</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-constant">Card</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">c</span>[<span class="ruby-value">1</span>],<span class="ruby-identifier">c</span>[<span class="ruby-value">0</span>]) }
 <span class="ruby-keyword">end</span></pre>
             </div><!-- new-source -->
             
@@ -257,7 +247,7 @@
             
             <div class="method-source-code" id="draw_card-source">
 <pre>
-<span class="ruby-comment"># File lib/deck.rb, line 20</span>
+<span class="ruby-comment"># File lib/deck.rb, line 17</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">draw_card</span>
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">cards</span>.<span class="ruby-identifier">pop</span>
 <span class="ruby-keyword">end</span></pre>
@@ -290,7 +280,7 @@
             
             <div class="method-source-code" id="empty-3F-source">
 <pre>
-<span class="ruby-comment"># File lib/deck.rb, line 16</span>
+<span class="ruby-comment"># File lib/deck.rb, line 13</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">empty?</span>
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">cards</span>.<span class="ruby-identifier">empty?</span>
 <span class="ruby-keyword">end</span></pre>
@@ -304,12 +294,12 @@
         </div><!-- empty-3F-method -->
 
       
-        <div id="shuffle-method" class="method-detail ">
-          <a name="method-i-shuffle"></a>
+        <div id="shuffle-21-method" class="method-detail ">
+          <a name="method-i-shuffle-21"></a>
 
           
           <div class="method-heading">
-            <span class="method-name">shuffle</span><span
+            <span class="method-name">shuffle!</span><span
               class="method-args">()</span>
             <span class="method-click-advice">click to toggle source</span>
           </div>
@@ -321,20 +311,20 @@
             
 
             
-            <div class="method-source-code" id="shuffle-source">
+            <div class="method-source-code" id="shuffle-21-source">
 <pre>
-<span class="ruby-comment"># File lib/deck.rb, line 12</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">shuffle</span>
-  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">cards</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">cards</span>.<span class="ruby-identifier">sort_by</span> { <span class="ruby-identifier">rand</span> }
+<span class="ruby-comment"># File lib/deck.rb, line 9</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">shuffle!</span>
+  <span class="ruby-ivar">@cards</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">cards</span>.<span class="ruby-identifier">sort_by</span> { <span class="ruby-identifier">rand</span> }
 <span class="ruby-keyword">end</span></pre>
-            </div><!-- shuffle-source -->
+            </div><!-- shuffle-21-source -->
             
           </div>
 
           
 
           
-        </div><!-- shuffle-method -->
+        </div><!-- shuffle-21-method -->
 
       
       </div><!-- public-instance-method-details -->
