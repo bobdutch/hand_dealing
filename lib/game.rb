@@ -9,21 +9,17 @@ class Game
     self.cards_per_hand = cards_per_hand.to_i
 
     #validate
-    attributes = {
-      'Number of players' => self.num_players,
-      'Cards per hand' => self.cards_per_hand
-    }
+    if self.num_players == 0
+      message = 'Number of players must be a positive number'
+      raise NumPlayersError.new(message)
+    end
 
-    attributes.each do |name, value|
-      if value == 0
-        message = "#{name} must be a positive number"
-        raise ArgumentError.new(message)
-      end
+    if self.cards_per_hand == 0
+      message = 'Cards per hand must be a positive number'
+      raise CardsPerHandError.new(message)
     end
 
     @deck = Deck.new
-
-    #validate cards per hand
 
     @players = SeatList.new
     @num_players.times do |i|
@@ -42,4 +38,10 @@ class Game
       @players.advance
     end
   end
+end
+
+class NumPlayersError < ArgumentError
+end
+
+class CardsPerHandError < ArgumentError
 end

@@ -7,14 +7,23 @@ require 'deck'
 require 'seat_list'
 
 begin
-  print "Enter the number of players: "
-  num_players = gets.to_i
-  print "Enter the number of cards in a hand: "
-  cards_per_hand = gets.to_i
+  unless @num_players
+    print "Enter the number of players: "
+    @num_players = gets.to_i
+  end
+  unless @cards_per_hand
+    print "Enter the number of cards in a hand: "
+    @cards_per_hand = gets.to_i
+  end
 
-  g = Game.new(num_players, cards_per_hand)
+  g = Game.new(@num_players, @cards_per_hand)
   puts g.players
-rescue ArgumentError => e
+rescue NumPlayersError => e
+  @num_players = nil
+  puts "\n#{e}"
+  retry
+rescue CardsPerHandError => e
+  @cards_per_hand = nil
   puts "\n#{e}"
   retry
 rescue Interrupt
