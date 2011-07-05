@@ -9,7 +9,7 @@ class TC_Player < Test::Unit::TestCase
 
   def test_get_card
     orig_count = @player.num_cards
-    @player.get_card(Card.new('s','2'))
+    @player.get_card(Card.new('s',2))
     assert_equal(orig_count + 1, @player.num_cards)
   end
 end
