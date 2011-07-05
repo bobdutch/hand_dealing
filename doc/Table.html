@@ -69,15 +69,11 @@
           
           <li><a href="#method-i-add_player">#add_player</a></li>
           
-          <li><a href="#method-i-advance">#advance</a></li>
+          <li><a href="#method-i-advance_turn">#advance_turn</a></li>
           
-          <li><a href="#method-i-any-3F">#any?</a></li>
+          <li><a href="#method-i-current_player">#current_player</a></li>
           
-          <li><a href="#method-i-count">#count</a></li>
-          
-          <li><a href="#method-i-current">#current</a></li>
-          
-          <li><a href="#method-i-each">#each</a></li>
+          <li><a href="#method-i-players">#players</a></li>
           
           <li><a href="#method-i-to_s">#to_s</a></li>
           
@@ -159,11 +155,10 @@
 
     <div id="description" class="description">
       
-<p>a collection class for Players, represents the game table the players are
-contained in array where the player at the first position is in play the
-seat_counter keeps track of the “seats” at the table the seat of a
-player is managed by the <a
-href="Player.html#attribute-i-position">Player#position</a> method</p>
+<p>a collection class for Players, represents the game table a table is an
+array of arrays where each array has two elements: the seat position of the
+player, and the player object itself in the first “seat” of the Array
+is in play the seat_counter keeps track of the numer of seats at the table</p>
 
     </div><!-- description -->
 
@@ -244,8 +239,8 @@ href="Player.html#attribute-i-position">Player#position</a> method</p>
 <pre>
 <span class="ruby-comment"># File lib/table.rb, line 13</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">add_player</span>(<span class="ruby-identifier">player</span>)
-  <span class="ruby-identifier">player</span>.<span class="ruby-identifier">position</span> = <span class="ruby-ivar">@seat_counter</span> = <span class="ruby-ivar">@seat_counter</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span> 
-  <span class="ruby-ivar">@seats</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">player</span>)
+  <span class="ruby-ivar">@seat_counter</span> = <span class="ruby-ivar">@seat_counter</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span> 
+  <span class="ruby-ivar">@seats</span>.<span class="ruby-identifier">push</span>([<span class="ruby-ivar">@seat_counter</span>, <span class="ruby-identifier">player</span>])
   <span class="ruby-keyword">self</span>
 <span class="ruby-keyword">end</span></pre>
             </div><!-- add_player-source -->
@@ -258,12 +253,12 @@ href="Player.html#attribute-i-position">Player#position</a> method</p>
         </div><!-- add_player-method -->
 
       
-        <div id="advance-method" class="method-detail ">
-          <a name="method-i-advance"></a>
+        <div id="advance_turn-method" class="method-detail ">
+          <a name="method-i-advance_turn"></a>
 
           
           <div class="method-heading">
-            <span class="method-name">advance</span><span
+            <span class="method-name">advance_turn</span><span
               class="method-args">()</span>
             <span class="method-click-advice">click to toggle source</span>
           </div>
@@ -276,95 +271,29 @@ player gets moved to the end of the list</p>
             
 
             
-            <div class="method-source-code" id="advance-source">
+            <div class="method-source-code" id="advance_turn-source">
 <pre>
-<span class="ruby-comment"># File lib/table.rb, line 26</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">advance</span>
+<span class="ruby-comment"># File lib/table.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">advance_turn</span>
   <span class="ruby-ivar">@seats</span>.<span class="ruby-identifier">push</span>(<span class="ruby-ivar">@seats</span>.<span class="ruby-identifier">shift</span>)
   <span class="ruby-keyword">self</span>
 <span class="ruby-keyword">end</span></pre>
-            </div><!-- advance-source -->
+            </div><!-- advance_turn-source -->
             
           </div>
 
           
 
           
-        </div><!-- advance-method -->
+        </div><!-- advance_turn-method -->
 
       
-        <div id="any-3F-method" class="method-detail ">
-          <a name="method-i-any-3F"></a>
+        <div id="current_player-method" class="method-detail ">
+          <a name="method-i-current_player"></a>
 
           
           <div class="method-heading">
-            <span class="method-name">any?</span><span
-              class="method-args">(*args, &block)</span>
-            <span class="method-click-advice">click to toggle source</span>
-          </div>
-          
-
-          <div class="method-description">
-            
-            <p>perform Array#any? on the players at the table</p>
-            
-
-            
-            <div class="method-source-code" id="any-3F-source">
-<pre>
-<span class="ruby-comment"># File lib/table.rb, line 32</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">any?</span>(*<span class="ruby-identifier">args</span>, &amp;<span class="ruby-identifier">block</span>)
-  <span class="ruby-ivar">@seats</span>.<span class="ruby-identifier">any?</span>(*<span class="ruby-identifier">args</span>, &amp;<span class="ruby-identifier">block</span>)
-<span class="ruby-keyword">end</span></pre>
-            </div><!-- any-3F-source -->
-            
-          </div>
-
-          
-
-          
-        </div><!-- any-3F-method -->
-
-      
-        <div id="count-method" class="method-detail ">
-          <a name="method-i-count"></a>
-
-          
-          <div class="method-heading">
-            <span class="method-name">count</span><span
-              class="method-args">()</span>
-            <span class="method-click-advice">click to toggle source</span>
-          </div>
-          
-
-          <div class="method-description">
-            
-            <p>return the number of active players at the table</p>
-            
-
-            
-            <div class="method-source-code" id="count-source">
-<pre>
-<span class="ruby-comment"># File lib/table.rb, line 42</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">count</span>
-  <span class="ruby-ivar">@seats</span>.<span class="ruby-identifier">count</span>
-<span class="ruby-keyword">end</span></pre>
-            </div><!-- count-source -->
-            
-          </div>
-
-          
-
-          
-        </div><!-- count-method -->
-
-      
-        <div id="current-method" class="method-detail ">
-          <a name="method-i-current"></a>
-
-          
-          <div class="method-heading">
-            <span class="method-name">current</span><span
+            <span class="method-name">current_player</span><span
               class="method-args">()</span>
             <span class="method-click-advice">click to toggle source</span>
           </div>
@@ -376,53 +305,54 @@ player gets moved to the end of the list</p>
             
 
             
-            <div class="method-source-code" id="current-source">
+            <div class="method-source-code" id="current_player-source">
 <pre>
 <span class="ruby-comment"># File lib/table.rb, line 20</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">current</span>
-  <span class="ruby-ivar">@seats</span>.<span class="ruby-identifier">first</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">current_player</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@seats</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-ivar">@seats</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">last</span>
 <span class="ruby-keyword">end</span></pre>
-            </div><!-- current-source -->
+            </div><!-- current_player-source -->
             
           </div>
 
           
 
           
-        </div><!-- current-method -->
+        </div><!-- current_player-method -->
 
       
-        <div id="each-method" class="method-detail ">
-          <a name="method-i-each"></a>
+        <div id="players-method" class="method-detail ">
+          <a name="method-i-players"></a>
 
           
           <div class="method-heading">
-            <span class="method-name">each</span><span
-              class="method-args">(*args, &block)</span>
+            <span class="method-name">players</span><span
+              class="method-args">()</span>
             <span class="method-click-advice">click to toggle source</span>
           </div>
           
 
           <div class="method-description">
             
-            <p>perform Array#each on the players at the table</p>
+            <p>an array of the active player objects</p>
             
 
             
-            <div class="method-source-code" id="each-source">
+            <div class="method-source-code" id="players-source">
 <pre>
-<span class="ruby-comment"># File lib/table.rb, line 37</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">each</span>(*<span class="ruby-identifier">args</span>, &amp;<span class="ruby-identifier">block</span>)
-  <span class="ruby-ivar">@seats</span>.<span class="ruby-identifier">each</span>(*<span class="ruby-identifier">args</span>, &amp;<span class="ruby-identifier">block</span>)
+<span class="ruby-comment"># File lib/table.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">players</span>
+  <span class="ruby-ivar">@seats</span>.<span class="ruby-identifier">collect</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">position</span>, <span class="ruby-identifier">player</span><span class="ruby-operator">|</span> <span class="ruby-identifier">player</span> }
 <span class="ruby-keyword">end</span></pre>
-            </div><!-- each-source -->
+            </div><!-- players-source -->
             
           </div>
 
           
 
           
-        </div><!-- each-method -->
+        </div><!-- players-method -->
 
       
         <div id="to_s-method" class="method-detail ">
@@ -444,10 +374,10 @@ player gets moved to the end of the list</p>
             
             <div class="method-source-code" id="to_s-source">
 <pre>
-<span class="ruby-comment"># File lib/table.rb, line 47</span>
+<span class="ruby-comment"># File lib/table.rb, line 38</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
-  <span class="ruby-ivar">@seats</span>.<span class="ruby-identifier">sort_by</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">position</span>}.<span class="ruby-identifier">collect</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">player</span><span class="ruby-operator">|</span>
-    <span class="ruby-identifier">player</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-ivar">@seats</span>.<span class="ruby-identifier">sort_by</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">position</span>, <span class="ruby-identifier">player</span><span class="ruby-operator">|</span> <span class="ruby-identifier">position</span>}.<span class="ruby-identifier">collect</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">position</span>, <span class="ruby-identifier">player</span><span class="ruby-operator">|</span>
+    <span class="ruby-node">&quot;Seat #{position}: #{player.to_s}&quot;</span>
   <span class="ruby-keyword">end</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n&quot;</span>)
 <span class="ruby-keyword">end</span></pre>
             </div><!-- to_s-source -->

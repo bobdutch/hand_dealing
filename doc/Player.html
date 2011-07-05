@@ -67,9 +67,9 @@
           
           <li><a href="#method-c-new">::new</a></li>
           
-          <li><a href="#method-i-get_card">#get_card</a></li>
-          
           <li><a href="#method-i-num_cards">#num_cards</a></li>
+          
+          <li><a href="#method-i-take_card">#take_card</a></li>
           
           <li><a href="#method-i-to_s">#to_s</a></li>
           
@@ -151,8 +151,7 @@
 
     <div id="description" class="description">
       
-<p>represents a person who is playing the game the position method represents
-the seating order of the player</p>
+<p>represents a person who is playing the game</p>
 
     </div><!-- description -->
 
@@ -177,23 +176,6 @@ the seating order of the player</p>
           
           <div class="method-heading attribute-method-heading">
             <span class="method-name">hand</span><span
-              class="attribute-access-type">[RW]</span>
-          </div>
-
-          <div class="method-description">
-          
-          
-          
-          </div>
-        </div>
-        
-        <div id="position-attribute-method" class="method-detail">
-          <a name="position"></a>
-          
-          <a name="position="></a>
-          
-          <div class="method-heading attribute-method-heading">
-            <span class="method-name">position</span><span
               class="attribute-access-type">[RW]</span>
           </div>
 
@@ -232,7 +214,7 @@ the seating order of the player</p>
             
             <div class="method-source-code" id="new-source">
 <pre>
-<span class="ruby-comment"># File lib/player.rb, line 7</span>
+<span class="ruby-comment"># File lib/player.rb, line 6</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">hand</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
 <span class="ruby-keyword">end</span></pre>
@@ -250,39 +232,6 @@ the seating order of the player</p>
     
       <div id="public-instance-method-details" class="method-section section">
         <h3 class="section-header">Public Instance Methods</h3>
-
-      
-        <div id="get_card-method" class="method-detail ">
-          <a name="method-i-get_card"></a>
-
-          
-          <div class="method-heading">
-            <span class="method-name">get_card</span><span
-              class="method-args">(card)</span>
-            <span class="method-click-advice">click to toggle source</span>
-          </div>
-          
-
-          <div class="method-description">
-            
-            <p>put the specified card in the player’s hand</p>
-            
-
-            
-            <div class="method-source-code" id="get_card-source">
-<pre>
-<span class="ruby-comment"># File lib/player.rb, line 17</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_card</span>(<span class="ruby-identifier">card</span>)
-  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">hand</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">card</span>
-<span class="ruby-keyword">end</span></pre>
-            </div><!-- get_card-source -->
-            
-          </div>
-
-          
-
-          
-        </div><!-- get_card-method -->
 
       
         <div id="num_cards-method" class="method-detail ">
@@ -304,7 +253,7 @@ the seating order of the player</p>
             
             <div class="method-source-code" id="num_cards-source">
 <pre>
-<span class="ruby-comment"># File lib/player.rb, line 12</span>
+<span class="ruby-comment"># File lib/player.rb, line 11</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">num_cards</span>
   <span class="ruby-keyword">self</span>.<span class="ruby-identifier">hand</span>.<span class="ruby-identifier">length</span>
 <span class="ruby-keyword">end</span></pre>
@@ -316,6 +265,39 @@ the seating order of the player</p>
 
           
         </div><!-- num_cards-method -->
+
+      
+        <div id="take_card-method" class="method-detail ">
+          <a name="method-i-take_card"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">take_card</span><span
+              class="method-args">(card)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            <p>put the specified card in the player’s hand</p>
+            
+
+            
+            <div class="method-source-code" id="take_card-source">
+<pre>
+<span class="ruby-comment"># File lib/player.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">take_card</span>(<span class="ruby-identifier">card</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">hand</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">card</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- take_card-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- take_card-method -->
 
       
         <div id="to_s-method" class="method-detail ">
@@ -331,15 +313,15 @@ the seating order of the player</p>
 
           <div class="method-description">
             
-            <p>print out the player’s seat position and contents of hand</p>
+            <p>print out contents of the player’s hand</p>
             
 
             
             <div class="method-source-code" id="to_s-source">
 <pre>
-<span class="ruby-comment"># File lib/player.rb, line 22</span>
+<span class="ruby-comment"># File lib/player.rb, line 21</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
-  <span class="ruby-node">&quot;Seat #{self.position}: #{self.hand.join(', ')}&quot;</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">hand</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">', '</span>)
 <span class="ruby-keyword">end</span></pre>
             </div><!-- to_s-source -->
             

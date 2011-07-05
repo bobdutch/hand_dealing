@@ -69,7 +69,7 @@
           
           <li><a href="#method-i-test_new">#test_new</a></li>
           
-          <li><a href="#method-i-test_players_to_s">#test_players_to_s</a></li>
+          <li><a href="#method-i-test_table_to_s">#test_table_to_s</a></li>
           
         </ul>
       </div>
@@ -194,7 +194,7 @@
   <span class="ruby-comment">#test count of cards in deck + cards in hand</span>
   <span class="ruby-identifier">cards_in_deck</span> = <span class="ruby-ivar">@game</span>.<span class="ruby-identifier">deck</span>.<span class="ruby-identifier">cards</span>.<span class="ruby-identifier">count</span>
   <span class="ruby-identifier">cards_in_hands</span> = <span class="ruby-value">0</span>
-  <span class="ruby-ivar">@game</span>.<span class="ruby-identifier">players</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span> <span class="ruby-identifier">cards_in_hands</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">num_cards</span> }
+  <span class="ruby-ivar">@game</span>.<span class="ruby-identifier">table</span>.<span class="ruby-identifier">players</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span> <span class="ruby-identifier">cards_in_hands</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">num_cards</span> }
   <span class="ruby-identifier">total_cards</span> = <span class="ruby-identifier">cards_in_hands</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">cards_in_deck</span>
 
   <span class="ruby-comment">#these tests assume a game intialized with a full standard deck</span>
@@ -207,19 +207,19 @@
 
 
   <span class="ruby-comment">#remove a card from each player's hand</span>
-  <span class="ruby-ivar">@game</span>.<span class="ruby-identifier">players</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">hand</span>.<span class="ruby-identifier">pop</span> }
+  <span class="ruby-ivar">@game</span>.<span class="ruby-identifier">table</span>.<span class="ruby-identifier">players</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">hand</span>.<span class="ruby-identifier">pop</span> }
   <span class="ruby-identifier">new_cards_in_hands</span> = <span class="ruby-value">0</span>
-  <span class="ruby-ivar">@game</span>.<span class="ruby-identifier">players</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span> <span class="ruby-identifier">new_cards_in_hands</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">num_cards</span> }
+  <span class="ruby-ivar">@game</span>.<span class="ruby-identifier">table</span>.<span class="ruby-identifier">players</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span> <span class="ruby-identifier">new_cards_in_hands</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">num_cards</span> }
 
-  <span class="ruby-comment">#cards in hands should be number of players fewer</span>
+  <span class="ruby-comment">#cards in hands should be number of table fewer</span>
   <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">new_cards_in_hands</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">cards_in_hands</span>)
-  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">new_cards_in_hands</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@game</span>.<span class="ruby-identifier">players</span>.<span class="ruby-identifier">count</span>, <span class="ruby-identifier">cards_in_hands</span>) 
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">new_cards_in_hands</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@game</span>.<span class="ruby-identifier">table</span>.<span class="ruby-identifier">players</span>.<span class="ruby-identifier">count</span>, <span class="ruby-identifier">cards_in_hands</span>) 
   <span class="ruby-comment">#total cards should also be number of players fewer</span>
-  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">new_cards_in_hands</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@game</span>.<span class="ruby-identifier">deck</span>.<span class="ruby-identifier">cards</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@game</span>.<span class="ruby-identifier">players</span>.<span class="ruby-identifier">count</span>, <span class="ruby-identifier">total_cards</span>) 
+  <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">new_cards_in_hands</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@game</span>.<span class="ruby-identifier">deck</span>.<span class="ruby-identifier">cards</span>.<span class="ruby-identifier">count</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@game</span>.<span class="ruby-identifier">table</span>.<span class="ruby-identifier">players</span>.<span class="ruby-identifier">count</span>, <span class="ruby-identifier">total_cards</span>) 
 
   <span class="ruby-comment">#deal until the deck is empty</span>
   <span class="ruby-keyword">while</span>(<span class="ruby-operator">!</span><span class="ruby-ivar">@game</span>.<span class="ruby-identifier">deck</span>.<span class="ruby-identifier">empty?</span>) <span class="ruby-keyword">do</span>
-    <span class="ruby-ivar">@game</span>.<span class="ruby-identifier">players</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">hand</span>.<span class="ruby-identifier">pop</span> }
+    <span class="ruby-ivar">@game</span>.<span class="ruby-identifier">table</span>.<span class="ruby-identifier">players</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">hand</span>.<span class="ruby-identifier">pop</span> }
     <span class="ruby-ivar">@game</span>.<span class="ruby-identifier">deal</span>
   <span class="ruby-keyword">end</span>
   <span class="ruby-identifier">assert_equal</span>(<span class="ruby-ivar">@game</span>.<span class="ruby-identifier">deck</span>.<span class="ruby-identifier">cards</span>.<span class="ruby-identifier">count</span>, <span class="ruby-value">0</span>)
@@ -308,12 +308,12 @@
         </div><!-- test_new-method -->
 
       
-        <div id="test_players_to_s-method" class="method-detail ">
-          <a name="method-i-test_players_to_s"></a>
+        <div id="test_table_to_s-method" class="method-detail ">
+          <a name="method-i-test_table_to_s"></a>
 
           
           <div class="method-heading">
-            <span class="method-name">test_players_to_s</span><span
+            <span class="method-name">test_table_to_s</span><span
               class="method-args">()</span>
             <span class="method-click-advice">click to toggle source</span>
           </div>
@@ -325,28 +325,28 @@
             
 
             
-            <div class="method-source-code" id="test_players_to_s-source">
+            <div class="method-source-code" id="test_table_to_s-source">
 <pre>
 <span class="ruby-comment"># File test/tc_game.rb, line 94</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_players_to_s</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_table_to_s</span>
   <span class="ruby-identifier">test_arguments</span> = [[<span class="ruby-value">5</span>,<span class="ruby-value">6</span>],[<span class="ruby-value">1</span>,<span class="ruby-value">10</span>],[<span class="ruby-value">25</span>,<span class="ruby-value">10</span>], [<span class="ruby-value">53</span>,<span class="ruby-value">10</span>]]
   <span class="ruby-identifier">test_arguments</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">num_players</span>, <span class="ruby-identifier">cards_per_hand</span><span class="ruby-operator">|</span>
     <span class="ruby-ivar">@game</span> = <span class="ruby-constant">Game</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">num_players</span>, <span class="ruby-identifier">cards_per_hand</span>)
-    <span class="ruby-identifier">seats</span> = <span class="ruby-ivar">@game</span>.<span class="ruby-identifier">players</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;\n&quot;</span>)
+    <span class="ruby-identifier">seats</span> = <span class="ruby-ivar">@game</span>.<span class="ruby-identifier">table</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;\n&quot;</span>)
     <span class="ruby-identifier">position</span> = <span class="ruby-value">0</span>
     <span class="ruby-identifier">seats</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">seat</span><span class="ruby-operator">|</span>
       <span class="ruby-identifier">assert_match</span>(<span class="ruby-regexp">/^Seat (\d+): ([2-9TJQKA]{1}[cshd]{1}, {1})*([2-9TJQKA]{1}[cshd]{1})?$/</span>, <span class="ruby-identifier">seat</span>)
     <span class="ruby-keyword">end</span>
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
-            </div><!-- test_players_to_s-source -->
+            </div><!-- test_table_to_s-source -->
             
           </div>
 
           
 
           
-        </div><!-- test_players_to_s-method -->
+        </div><!-- test_table_to_s-method -->
 
       
       </div><!-- public-instance-method-details -->
