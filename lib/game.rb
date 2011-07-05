@@ -2,7 +2,7 @@
 #by acting as dealer, score keeper, etc.
 class Game
 
-  attr_reader :players, :deck, :num_players, :cards_per_hand 
+  attr_reader :table, :deck, :num_players, :cards_per_hand 
 
   #set up a new game
   def initialize(num_players, cards_per_hand)
@@ -22,9 +22,9 @@ class Game
 
     @deck = Deck.new
 
-    @players = Table.new
+    @table = Table.new
     @num_players.times do
-      @players.add_player(Player.new)
+      @table.add_player(Player.new)
     end
 
     #shuffle
@@ -35,9 +35,9 @@ class Game
   #give cards to the players until their hands are full
   #or the deck is empty
   def deal
-    while (!@deck.empty? && @players.any? { |p| p.num_cards < self.cards_per_hand }) do
-      @players.current.get_card(@deck.draw_card)
-      @players.advance
+    while (!@deck.empty? && @table.any? { |p| p.num_cards < self.cards_per_hand }) do
+      @table.current.get_card(@deck.draw_card)
+      @table.advance
     end
   end
 end

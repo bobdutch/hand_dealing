@@ -58,7 +58,7 @@ class TC_Game < Test::Unit::TestCase
     #test count of cards in deck + cards in hand
     cards_in_deck = @game.deck.cards.count
     cards_in_hands = 0
-    @game.players.each {|p| cards_in_hands += p.num_cards }
+    @game.table.each {|p| cards_in_hands += p.num_cards }
     total_cards = cards_in_hands + cards_in_deck
 
     #these tests assume a game intialized with a full standard deck
@@ -71,19 +71,19 @@ class TC_Game < Test::Unit::TestCase
 
 
     #remove a card from each player's hand
-    @game.players.each { |p| p.hand.pop }
+    @game.table.each { |p| p.hand.pop }
     new_cards_in_hands = 0
-    @game.players.each {|p| new_cards_in_hands += p.num_cards }
+    @game.table.each {|p| new_cards_in_hands += p.num_cards }
 
-    #cards in hands should be number of players fewer
+    #cards in hands should be number of table fewer
     assert(new_cards_in_hands < cards_in_hands)
-    assert_equal(new_cards_in_hands + @game.players.count, cards_in_hands) 
+    assert_equal(new_cards_in_hands + @game.table.count, cards_in_hands) 
     #total cards should also be number of players fewer
-    assert_equal(new_cards_in_hands + @game.deck.cards.count + @game.players.count, total_cards) 
+    assert_equal(new_cards_in_hands + @game.deck.cards.count + @game.table.count, total_cards) 
 
     #deal until the deck is empty
     while(!@game.deck.empty?) do
-      @game.players.each { |p| p.hand.pop }
+      @game.table.each { |p| p.hand.pop }
       @game.deal
     end
     assert_equal(@game.deck.cards.count, 0)
@@ -91,11 +91,11 @@ class TC_Game < Test::Unit::TestCase
 
   end
 
-  def test_players_to_s
+  def test_table_to_s
     test_arguments = [[5,6],[1,10],[25,10], [53,10]]
     test_arguments.each do |num_players, cards_per_hand|
       @game = Game.new(num_players, cards_per_hand)
-      seats = @game.players.to_s.split("\n")
+      seats = @game.table.to_s.split("\n")
       position = 0
       seats.each do |seat|
         assert_match(/^Seat (\d+): ([2-9TJQKA]{1}[cshd]{1}, {1})*([2-9TJQKA]{1}[cshd]{1})?$/, seat)
