@@ -29,16 +29,6 @@ class Table
     self
   end
 
-  #perform Array#any? on the players at the table
-  def any?(*args, &block)
-    players.any?(*args, &block)
-  end
-
-  #perform Array#each on the players at the table
-  def each(*args, &block)
-    players.each(*args, &block)
-  end
-
   #an array of the active player objects
   def players
     @seats.collect {|position, player| player }

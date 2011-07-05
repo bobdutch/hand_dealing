@@ -35,7 +35,7 @@ class Game
   #give cards to the players until their hands are full
   #or the deck is empty
   def deal
-    while (!@deck.empty? && @table.any? { |player| player.num_cards < self.cards_per_hand }) do
+    while (!@deck.empty? && @table.players.any? { |player| player.num_cards < self.cards_per_hand }) do
       @table.current_player.take_card(@deck.draw_card)
       @table.advance_turn
     end

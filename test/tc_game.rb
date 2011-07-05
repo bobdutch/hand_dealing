@@ -58,7 +58,7 @@ class TC_Game < Test::Unit::TestCase
     #test count of cards in deck + cards in hand
     cards_in_deck = @game.deck.cards.count
     cards_in_hands = 0
-    @game.table.each {|p| cards_in_hands += p.num_cards }
+    @game.table.players.each {|p| cards_in_hands += p.num_cards }
     total_cards = cards_in_hands + cards_in_deck
 
     #these tests assume a game intialized with a full standard deck
@@ -71,9 +71,9 @@ class TC_Game < Test::Unit::TestCase
 
 
     #remove a card from each player's hand
-    @game.table.each { |p| p.hand.pop }
+    @game.table.players.each { |p| p.hand.pop }
     new_cards_in_hands = 0
-    @game.table.each {|p| new_cards_in_hands += p.num_cards }
+    @game.table.players.each {|p| new_cards_in_hands += p.num_cards }
 
     #cards in hands should be number of table fewer
     assert(new_cards_in_hands < cards_in_hands)
@@ -83,7 +83,7 @@ class TC_Game < Test::Unit::TestCase
 
     #deal until the deck is empty
     while(!@game.deck.empty?) do
-      @game.table.each { |p| p.hand.pop }
+      @game.table.players.each { |p| p.hand.pop }
       @game.deal
     end
     assert_equal(@game.deck.cards.count, 0)
