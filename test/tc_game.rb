@@ -37,17 +37,15 @@ class TC_Game < Test::Unit::TestCase
     end
 
     bad_player_vals.each do |players, cards|
-      assert_raise(ArgumentError) do
+      assert_raise(NumPlayersError) do
         @game = Game.new(players, cards)
       end
-      #check for error message
     end
 
     bad_card_vals.each do |players, cards|
-      assert_raise(ArgumentError) do
+      assert_raise(CardsPerHandError) do
         @game = Game.new(players, cards)
       end
-      #check for error message
     end
    
   end
