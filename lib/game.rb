@@ -24,7 +24,7 @@ class Game
 
     @players = SeatList.new
     @num_players.times do
-      @players.add_player(Player.new
+      @players.add_player(Player.new)
     end
 
     #shuffle
