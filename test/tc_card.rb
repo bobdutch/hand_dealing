@@ -17,6 +17,22 @@ class TC_Card < Test::Unit::TestCase
     end
   end
 
+  def test_valid_suits_and_ranks
+    assert_nothing_raised(ArgumentError) do
+      Card::SUITS.each do |suit|
+        Card::RANKS.each do |rank|
+          Card.new(suit, rank)
+        end
+      end
+    end
+
+    [['d',1],['f',2],['f',1]].each do |suit, rank|
+      assert_raise(ArgumentError) do
+        Card.new(suit,rank)
+      end
+    end
+  end
+
   def test_to_s
     rank, suit = @card.to_s.split('')
     assert_equal(suit, @card.suit)

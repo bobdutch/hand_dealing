@@ -5,6 +5,9 @@ class Card
  attr_reader :suit, :rank
 
   def initialize(suit, rank)
+    unless SUITS.include?(suit) and RANKS.include?(rank)
+      raise ArgumentError
+    end
     @suit = suit
     @rank = rank
   end
