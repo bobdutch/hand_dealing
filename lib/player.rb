@@ -13,7 +13,7 @@ class Player
   end
 
   #put the specified card in the player's hand
-  def get_card(card)
+  def take_card(card)
     self.hand << card
   end
 

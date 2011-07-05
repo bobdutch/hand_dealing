@@ -23,7 +23,7 @@ begin
   
   Timeout::timeout(TIMEOUT_MINUTES*60) do
     g = Game.new(@num_players, @cards_per_hand)
-    puts g.players
+    puts g.table
   end
 
 rescue TimeoutError

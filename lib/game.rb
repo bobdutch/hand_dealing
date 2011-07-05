@@ -36,8 +36,8 @@ class Game
   #or the deck is empty
   def deal
     while (!@deck.empty? && @table.any? { |p| p.num_cards < self.cards_per_hand }) do
-      @table.current.get_card(@deck.draw_card)
-      @table.advance
+      @table.current_player.take_card(@deck.draw_card)
+      @table.advance_turn
     end
   end
 end

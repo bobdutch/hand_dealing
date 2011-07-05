@@ -77,9 +77,9 @@ class TC_Game < Test::Unit::TestCase
 
     #cards in hands should be number of table fewer
     assert(new_cards_in_hands < cards_in_hands)
-    assert_equal(new_cards_in_hands + @game.table.count, cards_in_hands) 
+    assert_equal(new_cards_in_hands + @game.table.count_players, cards_in_hands) 
     #total cards should also be number of players fewer
-    assert_equal(new_cards_in_hands + @game.deck.cards.count + @game.table.count, total_cards) 
+    assert_equal(new_cards_in_hands + @game.deck.cards.count + @game.table.count_players, total_cards) 
 
     #deal until the deck is empty
     while(!@game.deck.empty?) do

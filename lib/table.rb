@@ -17,14 +17,14 @@ class Table
   end
 
   #return the player who's turn is in play
-  def current
+  def current_player
     return nil if @seats.empty?
     @seats.first.last
   end
 
   #advance play so that the next player is ready for his/her turn
   #the current player gets moved to the end of the list
-  def advance
+  def advance_turn
     @seats.push(@seats.shift)
     self
   end
@@ -40,8 +40,8 @@ class Table
   end
 
   #return the number of active players at the table
-  def count
-    @seats.count
+  def count_players
+    players.count
   end
 
   #an array of the active player objects
