@@ -90,5 +90,17 @@ class TC_Game < Test::Unit::TestCase
 
   end
 
+  def test_players_to_s
+    test_arguments = [[5,6],[1,10],[25,10], [53,10]]
+    test_arguments.each do |num_players, cards_per_hand|
+      @game = Game.new(num_players, cards_per_hand)
+      seats = @game.players.to_s.split("\n")
+      position = 0
+      seats.each do |seat|
+        assert_match(/^Seat (\d+): ([2-9TJQKA]{1}[cshd]{1}, {1})*([2-9TJQKA]{1}[cshd]{1})?$/, seat)
+      end
+    end
+  end
+ 
 end
 

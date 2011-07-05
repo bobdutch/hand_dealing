@@ -50,9 +50,4 @@ class TC_SeatList < Test::Unit::TestCase
     end
     assert_equal(players_to_add, @list.count)
   end
-
-  def test_to_s
-    flunk("to do")
-  end
- 
 end

@@ -12,7 +12,6 @@ class Player
   end
 
   def get_card(card)
-    #TODO make sure hand isn't full
     self.hand << card
   end
 end
