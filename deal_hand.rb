@@ -6,7 +6,7 @@ require 'player'
 require 'game'
 require 'card'
 require 'deck'
-require 'seat_list'
+require 'table'
 
 TIMEOUT_MINUTES = 5
 

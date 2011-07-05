@@ -3,7 +3,7 @@
 #position is in play
 #the seat_counter keeps track of the "seats" at the table
 #the seat of a player is managed by the Player#position method
-class SeatList
+class Table
   def initialize
     @seats = Array.new
     @seat_counter = 0

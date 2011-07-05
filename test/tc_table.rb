@@ -1,12 +1,12 @@
 #!/usr/bin/env ruby
 require 'test/unit'
-require "#{File.dirname(__FILE__)}/../lib/seat_list.rb"
+require "#{File.dirname(__FILE__)}/../lib/table.rb"
 require "#{File.dirname(__FILE__)}/../lib/player.rb"
 
-class TC_SeatList < Test::Unit::TestCase
+class TC_Table < Test::Unit::TestCase
 
   def setup
-    @list = SeatList.new
+    @list = Table.new
   end
 
   def test_add_player

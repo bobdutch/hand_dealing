@@ -22,7 +22,7 @@ class Game
 
     @deck = Deck.new
 
-    @players = SeatList.new
+    @players = Table.new
     @num_players.times do
       @players.add_player(Player.new)
     end
