@@ -52,15 +52,42 @@ class TC_Game < Test::Unit::TestCase
 
   def test_deal
     #initialize game
+    @game = Game.new(5,6)
 
     #test count of cards in deck + cards in hand
+    cards_in_deck = @game.deck.cards.count
+    cards_in_hands = 0
+    @game.players.each {|p| cards_in_hands += p.num_cards }
+    total_cards = cards_in_hands + cards_in_deck
 
-    #make sure another deal doesn't change that
+    #these tests assume a game intialized with a full standard deck
+    assert_equal(total_cards, 52)
 
-    #remove some cards from players
+    #this deal shouldn't add any more cards because
+    #all hands are full
+    @game.deal
+    assert_equal(cards_in_deck, @game.deck.cards.count)
 
-    #deal again
-    flunk("to do")
+
+    #remove a card from each player's hand
+    @game.players.each { |p| p.hand.pop }
+    new_cards_in_hands = 0
+    @game.players.each {|p| new_cards_in_hands += p.num_cards }
+
+    #cards in hands should be number of players fewer
+    assert(new_cards_in_hands < cards_in_hands)
+    assert_equal(new_cards_in_hands + @game.players.count, cards_in_hands) 
+    #total cards should also be number of players fewer
+    assert_equal(new_cards_in_hands + @game.deck.cards.count + @game.players.count, total_cards) 
+
+    #deal until the deck is empty
+    while(!@game.deck.empty?) do
+      @game.players.each { |p| p.hand.pop }
+      @game.deal
+    end
+    assert_equal(@game.deck.cards.count, 0)
+
+
   end
 
 end

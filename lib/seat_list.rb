@@ -21,6 +21,10 @@ class SeatList
     @seats.any?(*args, &block)
   end
 
+  def each(*args, &block)
+    @seats.each(*args, &block)
+  end
+
   def count
     @seats.count
   end
