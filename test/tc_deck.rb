@@ -20,7 +20,7 @@ class TC_Deck < Test::Unit::TestCase
   #so this test is dubious
   def test_shuffle
     pre_shuffle = @deck.cards
-    @deck.shuffle
+    @deck.shuffle!
     assert_not_equal(@deck.cards, pre_shuffle, "these probably shouldn't be the same, run the test again?")
   end
 

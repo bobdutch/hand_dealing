@@ -4,5 +4,5 @@
 - check for code reek
 - instruction to run app and tests
 - possibly make Hand a model 
-- shuffle should be named shuffle!
 - suits and ranks should be in the Card class, not Deck
+- add shebang to all tests

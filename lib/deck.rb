@@ -9,7 +9,7 @@ class Deck
     @cards = RANKS.product(SUITS).collect { |c| Card.new(c[1],c[0]) }
   end
 
-  def shuffle
+  def shuffle!
     @cards = self.cards.sort_by { rand }
   end
 

@@ -28,7 +28,7 @@ class Game
     end
 
     #shuffle
-    @deck.shuffle
+    @deck.shuffle!
     deal
   end
 
