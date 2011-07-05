@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 require 'test/unit'
 require "#{File.dirname(__FILE__)}/../lib/game.rb"
 require "#{File.dirname(__FILE__)}/../lib/seat_list.rb"
