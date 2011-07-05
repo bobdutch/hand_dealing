@@ -1,10 +1,14 @@
 #!/usr/bin/env ruby
+require 'timeout'
+
 $LOAD_PATH << File.join(File.dirname(__FILE__), 'lib')
 require 'player'
 require 'game'
 require 'card'
 require 'deck'
 require 'seat_list'
+
+TIMEOUT_MINUTES = 5
 
 begin
   unless @num_players
@@ -17,16 +21,13 @@ begin
     @cards_per_hand = gets.to_i
   end
   
-  #for sanity if the user enters values that would require
-  #one thousand times the cards of a standard deck then abort
-  if(@num_players*@cards_per_hand > 52000)
-    puts "Pick some reasonable values and try again"
-    raise Interrupt
+  Timeout::timeout(TIMEOUT_MINUTES*60) do
+    g = Game.new(@num_players, @cards_per_hand)
+    puts g.players
   end
 
-  g = Game.new(@num_players, @cards_per_hand)
-  puts g.players
-
+rescue TimeoutError
+  puts "Application Timed out.. try again with smaller values"
 
 rescue NumPlayersError => e
   @num_players = nil
