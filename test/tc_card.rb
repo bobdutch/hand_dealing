@@ -2,6 +2,7 @@
 require 'test/unit'
 require "#{File.dirname(__FILE__)}/../lib/card.rb"
 
+#test cases for Card model
 class TC_Card < Test::Unit::TestCase
   def setup
     @card = Card.new(Card::SUITS[rand(Card::SUITS.size)], Card::RANKS[rand(Card::RANKS.size)]) 
@@ -18,6 +19,7 @@ class TC_Card < Test::Unit::TestCase
   end
 
   def test_valid_suits_and_ranks
+    #good values
     assert_nothing_raised(ArgumentError) do
       Card::SUITS.each do |suit|
         Card::RANKS.each do |rank|
@@ -26,6 +28,7 @@ class TC_Card < Test::Unit::TestCase
       end
     end
 
+    #mix of bad values
     [['d',1],['f',2],['f',1]].each do |suit, rank|
       assert_raise(ArgumentError) do
         Card.new(suit,rank)

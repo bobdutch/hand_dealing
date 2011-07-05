@@ -93,6 +93,8 @@
         
           <li class="file"><a href="./TODO.html">TODO</a></li>
         
+          <li class="file"><a href="./rb.html">rb</a></li>
+        
         </ul>
       </div>
       
@@ -172,11 +174,9 @@
         <div id="hand-attribute-method" class="method-detail">
           <a name="hand"></a>
           
-          <a name="hand="></a>
-          
           <div class="method-heading attribute-method-heading">
             <span class="method-name">hand</span><span
-              class="attribute-access-type">[RW]</span>
+              class="attribute-access-type">[R]</span>
           </div>
 
           <div class="method-description">
@@ -216,7 +216,7 @@
 <pre>
 <span class="ruby-comment"># File lib/player.rb, line 6</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
-  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">hand</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@hand</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
 <span class="ruby-keyword">end</span></pre>
             </div><!-- new-source -->
             
@@ -255,7 +255,7 @@
 <pre>
 <span class="ruby-comment"># File lib/player.rb, line 11</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">num_cards</span>
-  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">hand</span>.<span class="ruby-identifier">length</span>
+  <span class="ruby-ivar">@hand</span>.<span class="ruby-identifier">length</span>
 <span class="ruby-keyword">end</span></pre>
             </div><!-- num_cards-source -->
             
@@ -288,7 +288,7 @@
 <pre>
 <span class="ruby-comment"># File lib/player.rb, line 16</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">take_card</span>(<span class="ruby-identifier">card</span>)
-  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">hand</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">card</span>
+  <span class="ruby-ivar">@hand</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">card</span>
 <span class="ruby-keyword">end</span></pre>
             </div><!-- take_card-source -->
             
@@ -321,7 +321,7 @@
 <pre>
 <span class="ruby-comment"># File lib/player.rb, line 21</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
-  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">hand</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">', '</span>)
+  <span class="ruby-ivar">@hand</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">', '</span>)
 <span class="ruby-keyword">end</span></pre>
             </div><!-- to_s-source -->
             

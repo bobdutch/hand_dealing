@@ -93,6 +93,8 @@
         
           <li class="file"><a href="./TODO.html">TODO</a></li>
         
+          <li class="file"><a href="./rb.html">rb</a></li>
+        
         </ul>
       </div>
       
@@ -151,6 +153,8 @@
 
     <div id="description" class="description">
       
+<p>test cases for <a href="Card.html">Card</a> model</p>
+
     </div><!-- description -->
 
     
@@ -188,7 +192,7 @@
             
             <div class="method-source-code" id="setup-source">
 <pre>
-<span class="ruby-comment"># File test/tc_card.rb, line 6</span>
+<span class="ruby-comment"># File test/tc_card.rb, line 7</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">setup</span>
   <span class="ruby-ivar">@card</span> = <span class="ruby-constant">Card</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">Card</span><span class="ruby-operator">::</span><span class="ruby-constant">SUITS</span>[<span class="ruby-identifier">rand</span>(<span class="ruby-constant">Card</span><span class="ruby-operator">::</span><span class="ruby-constant">SUITS</span>.<span class="ruby-identifier">size</span>)], <span class="ruby-constant">Card</span><span class="ruby-operator">::</span><span class="ruby-constant">RANKS</span>[<span class="ruby-identifier">rand</span>(<span class="ruby-constant">Card</span><span class="ruby-operator">::</span><span class="ruby-constant">RANKS</span>.<span class="ruby-identifier">size</span>)]) 
 <span class="ruby-keyword">end</span></pre>
@@ -221,7 +225,7 @@
             
             <div class="method-source-code" id="test_change_suit_or_rank-source">
 <pre>
-<span class="ruby-comment"># File test/tc_card.rb, line 11</span>
+<span class="ruby-comment"># File test/tc_card.rb, line 12</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_change_suit_or_rank</span>
   <span class="ruby-identifier">assert_raise</span>(<span class="ruby-constant">NoMethodError</span>) <span class="ruby-keyword">do</span>
     <span class="ruby-ivar">@cart</span>.<span class="ruby-identifier">suit</span> = <span class="ruby-string">'anything'</span>
@@ -259,7 +263,7 @@
             
             <div class="method-source-code" id="test_to_s-source">
 <pre>
-<span class="ruby-comment"># File test/tc_card.rb, line 36</span>
+<span class="ruby-comment"># File test/tc_card.rb, line 39</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_to_s</span>
   <span class="ruby-identifier">rank</span>, <span class="ruby-identifier">suit</span> = <span class="ruby-ivar">@card</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">''</span>)
   <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">suit</span>, <span class="ruby-ivar">@card</span>.<span class="ruby-identifier">suit</span>)
@@ -294,8 +298,9 @@
             
             <div class="method-source-code" id="test_valid_suits_and_ranks-source">
 <pre>
-<span class="ruby-comment"># File test/tc_card.rb, line 20</span>
+<span class="ruby-comment"># File test/tc_card.rb, line 21</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_valid_suits_and_ranks</span>
+  <span class="ruby-comment">#good values</span>
   <span class="ruby-identifier">assert_nothing_raised</span>(<span class="ruby-constant">ArgumentError</span>) <span class="ruby-keyword">do</span>
     <span class="ruby-constant">Card</span><span class="ruby-operator">::</span><span class="ruby-constant">SUITS</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">suit</span><span class="ruby-operator">|</span>
       <span class="ruby-constant">Card</span><span class="ruby-operator">::</span><span class="ruby-constant">RANKS</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">rank</span><span class="ruby-operator">|</span>
@@ -304,6 +309,7 @@
     <span class="ruby-keyword">end</span>
   <span class="ruby-keyword">end</span>
 
+  <span class="ruby-comment">#mix of bad values</span>
   [[<span class="ruby-string">'d'</span>,<span class="ruby-value">1</span>],[<span class="ruby-string">'f'</span>,<span class="ruby-value">2</span>],[<span class="ruby-string">'f'</span>,<span class="ruby-value">1</span>]].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">suit</span>, <span class="ruby-identifier">rank</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">assert_raise</span>(<span class="ruby-constant">ArgumentError</span>) <span class="ruby-keyword">do</span>
       <span class="ruby-constant">Card</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">suit</span>,<span class="ruby-identifier">rank</span>)

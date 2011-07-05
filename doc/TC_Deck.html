@@ -93,6 +93,8 @@
         
           <li class="file"><a href="./TODO.html">TODO</a></li>
         
+          <li class="file"><a href="./rb.html">rb</a></li>
+        
         </ul>
       </div>
       
@@ -151,6 +153,8 @@
 
     <div id="description" class="description">
       
+<p>test cases for <a href="Deck.html">Deck</a> model</p>
+
     </div><!-- description -->
 
     
@@ -188,7 +192,7 @@
             
             <div class="method-source-code" id="setup-source">
 <pre>
-<span class="ruby-comment"># File test/tc_deck.rb, line 8</span>
+<span class="ruby-comment"># File test/tc_deck.rb, line 9</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">setup</span>
   <span class="ruby-ivar">@deck</span> = <span class="ruby-constant">Deck</span>.<span class="ruby-identifier">new</span>
 <span class="ruby-keyword">end</span></pre>
@@ -221,7 +225,7 @@
             
             <div class="method-source-code" id="test_draw_card-source">
 <pre>
-<span class="ruby-comment"># File test/tc_deck.rb, line 12</span>
+<span class="ruby-comment"># File test/tc_deck.rb, line 13</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_draw_card</span>
   <span class="ruby-identifier">assert_not_equal</span>(<span class="ruby-ivar">@deck</span>.<span class="ruby-identifier">cards</span>.<span class="ruby-identifier">length</span>, <span class="ruby-value">0</span>)
   <span class="ruby-identifier">start_length</span> = <span class="ruby-ivar">@deck</span>.<span class="ruby-identifier">cards</span>.<span class="ruby-identifier">length</span>
@@ -258,7 +262,7 @@
             
             <div class="method-source-code" id="test_empty-source">
 <pre>
-<span class="ruby-comment"># File test/tc_deck.rb, line 28</span>
+<span class="ruby-comment"># File test/tc_deck.rb, line 29</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_empty</span>
   <span class="ruby-identifier">assert_not_equal</span>(<span class="ruby-ivar">@deck</span>.<span class="ruby-identifier">cards</span>.<span class="ruby-identifier">length</span>, <span class="ruby-value">0</span>)
   <span class="ruby-ivar">@deck</span>.<span class="ruby-identifier">cards</span>.<span class="ruby-identifier">length</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span>
@@ -291,13 +295,13 @@
           <div class="method-description">
             
             <p>there is a 1/52 chance that a shuffled deck could be the same so this test
-is dubious</p>
+is dubious, if it fails you should run the test again</p>
             
 
             
             <div class="method-source-code" id="test_shuffle-source">
 <pre>
-<span class="ruby-comment"># File test/tc_deck.rb, line 22</span>
+<span class="ruby-comment"># File test/tc_deck.rb, line 23</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_shuffle</span>
   <span class="ruby-identifier">pre_shuffle</span> = <span class="ruby-ivar">@deck</span>.<span class="ruby-identifier">cards</span>
   <span class="ruby-ivar">@deck</span>.<span class="ruby-identifier">shuffle!</span>

@@ -6,6 +6,7 @@ require "#{File.dirname(__FILE__)}/../lib/player.rb"
 require "#{File.dirname(__FILE__)}/../lib/deck.rb"
 require "#{File.dirname(__FILE__)}/../lib/card.rb"
 
+#test cases for Game model
 class TC_Game < Test::Unit::TestCase
 
   def test_new
@@ -91,6 +92,7 @@ class TC_Game < Test::Unit::TestCase
 
   end
 
+  #validate output format
   def test_table_to_s
     test_arguments = [[5,6],[1,10],[25,10], [53,10]]
     test_arguments.each do |num_players, cards_per_hand|

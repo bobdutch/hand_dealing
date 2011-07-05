@@ -3,6 +3,7 @@ require 'test/unit'
 require "#{File.dirname(__FILE__)}/../lib/deck.rb"
 require "#{File.dirname(__FILE__)}/../lib/card.rb"
 
+#test cases for Deck model
 class TC_Deck < Test::Unit::TestCase
   
   def setup
@@ -18,7 +19,7 @@ class TC_Deck < Test::Unit::TestCase
   end
 
   #there is a 1/52 chance that a shuffled deck could be the same
-  #so this test is dubious
+  #so this test is dubious, if it fails you should run the test again
   def test_shuffle
     pre_shuffle = @deck.cards
     @deck.shuffle!

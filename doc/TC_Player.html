@@ -89,6 +89,8 @@
         
           <li class="file"><a href="./TODO.html">TODO</a></li>
         
+          <li class="file"><a href="./rb.html">rb</a></li>
+        
         </ul>
       </div>
       
@@ -147,6 +149,8 @@
 
     <div id="description" class="description">
       
+<p>test cases for <a href="Player.html">Player</a> model</p>
+
     </div><!-- description -->
 
     
@@ -184,7 +188,7 @@
             
             <div class="method-source-code" id="setup-source">
 <pre>
-<span class="ruby-comment"># File test/tc_player.rb, line 6</span>
+<span class="ruby-comment"># File test/tc_player.rb, line 7</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">setup</span>
   <span class="ruby-ivar">@player</span> = <span class="ruby-constant">Player</span>.<span class="ruby-identifier">new</span>
 <span class="ruby-keyword">end</span></pre>
@@ -217,7 +221,7 @@
             
             <div class="method-source-code" id="test_take_card-source">
 <pre>
-<span class="ruby-comment"># File test/tc_player.rb, line 10</span>
+<span class="ruby-comment"># File test/tc_player.rb, line 11</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_take_card</span>
   <span class="ruby-identifier">orig_count</span> = <span class="ruby-ivar">@player</span>.<span class="ruby-identifier">num_cards</span>
   <span class="ruby-ivar">@player</span>.<span class="ruby-identifier">take_card</span>(<span class="ruby-constant">Card</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">'s'</span>,<span class="ruby-value">2</span>))

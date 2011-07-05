@@ -2,6 +2,7 @@
 require 'test/unit'
 require "#{File.dirname(__FILE__)}/../lib/player.rb"
 
+#test cases for Player model
 class TC_Player < Test::Unit::TestCase
   def setup
     @player = Player.new

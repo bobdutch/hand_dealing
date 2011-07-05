@@ -3,6 +3,7 @@ require 'test/unit'
 require "#{File.dirname(__FILE__)}/../lib/table.rb"
 require "#{File.dirname(__FILE__)}/../lib/player.rb"
 
+#test cases for Table model
 class TC_Table < Test::Unit::TestCase
 
   def setup
