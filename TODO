@@ -2,7 +2,6 @@
 - we shouldn't have to explicitly set player's positions
 - audit attr_accessors, what shouldn't we expose?
 - validate input, retry with friendly messages
-- friendly message if they cntrl-c
 - check for code reek
 - instruction to run app and tests
 - possibly make Hand a model 

@@ -15,8 +15,9 @@ begin
   g = Game.new(num_players, cards_per_hand)
   puts g.players
 rescue ArgumentError => e
-  puts ''
-  puts e
+  puts "\n#{e}"
   retry
+rescue Interrupt
+  puts "\nGoodbye."
 end
 
